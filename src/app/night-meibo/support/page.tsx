@@ -7,84 +7,76 @@ export default function NightMeiboSupport() {
       description="Night名簿帳に関するサポート情報"
     >
       <div className="max-w-4xl mx-auto">
-        {/* FAQ Section */}
         <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">よくある質問</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">■ よくある質問</h2>
           
           <div className="space-y-6">
-            <div className="bg-white/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-3">Q: データのバックアップ方法を教えてください</h3>
-              <p className="text-gray-300">A: 設定画面から「データバックアップ」を選択し、クラウドストレージへの自動バックアップを有効にできます。手動でのエクスポートも可能です。</p>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">【プレミアムプランについて】</h3>
+              
+              <div className="space-y-4">
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">Q: プレミアムプランの料金は？</h4>
+                  <p className="text-gray-300">A: 月額300円です。7日間の無料トライアルもご利用いただけます。</p>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">Q: プレミアムプランの特典は？</h4>
+                  <p className="text-gray-300">A: ・広告の完全非表示</p>
+                  <p className="text-gray-300 pl-6">・データのバックアップ・復元機能</p>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">Q: 解約方法は？</h4>
+                  <p className="text-gray-300">A: iPhone/iPadの設定アプリ &gt; App Store &gt; サブスクリプション から管理できます。</p>
+                </div>
+              </div>
             </div>
-            
-            <div className="bg-white/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-3">Q: 連絡先をインポートできますか？</h3>
-              <p className="text-gray-300">A: はい。CSV形式、vCard形式でのインポートが可能です。既存の連絡先アプリからのデータ移行も簡単に行えます。</p>
+
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4 mt-8">【データについて】</h3>
+              
+              <div className="space-y-4">
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">Q: データは安全ですか？</h4>
+                  <p className="text-gray-300">A: すべてのデータはお客様のデバイス内にのみ保存され、外部に送信されることはありません。</p>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">Q: データのバックアップは？</h4>
+                  <p className="text-gray-300">A: プレミアムプランにて、iCloudを利用したバックアップ機能をご利用いただけます。</p>
+                </div>
+              </div>
             </div>
-            
-            <div className="bg-white/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-3">Q: アプリを削除するとデータはどうなりますか？</h3>
-              <p className="text-gray-300">A: ローカルデータは削除されますが、クラウドバックアップを有効にしていればデータは保持されます。再インストール後にデータを復元できます。</p>
-            </div>
-            
-            <div className="bg-white/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-3">Q: 複数デバイスでの同期は可能ですか？</h3>
-              <p className="text-gray-300">A: はい。同じアカウントでログインすることで、複数のデバイス間でデータを同期できます。</p>
+
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4 mt-8">【操作について】</h3>
+              
+              <div className="space-y-4">
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">Q: スタッフの写真が保存できません</h4>
+                  <p className="text-gray-300">A: カメラ・フォトライブラリへのアクセス許可が必要です。設定アプリでアクセス許可をご確認ください。</p>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">Q: PDFが出力できません</h4>
+                  <p className="text-gray-300">A: iOS標準の共有機能を使用しています。他のアプリとの競合がある場合は、端末の再起動をお試しください。</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">お問い合わせ</h2>
+        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-white mb-6">📩 お問い合わせ</h2>
           
           <div className="space-y-4 text-gray-300">
-            <p>上記で解決しない問題やご質問がございましたら、以下の方法でお気軽にお問い合わせください。</p>
-            
-            <div className="bg-white/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-3">📧 メールサポート</h3>
-              <p className="mb-2">
-                <a 
-                  href="mailto:app@liv-jpn.com" 
-                  className="text-purple-300 hover:text-purple-200 transition-colors"
-                >
-                  app@liv-jpn.com
-                </a>
-              </p>
-              <p className="text-sm text-gray-400">通常24時間以内に回答いたします</p>
-            </div>
-            
-            <div className="bg-white/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-3">📞 営業時間</h3>
-              <p>平日: 9:00 - 18:00</p>
-              <p>土日祝日: 休業</p>
-              <p className="text-sm text-gray-400 mt-2">※緊急時を除き、メールでのお問い合わせをお願いいたします</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Troubleshooting Section */}
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-white mb-6">トラブルシューティング</h2>
-          
-          <div className="space-y-4">
-            <div className="bg-white/5 rounded-lg p-4">
-              <h3 className="text-white font-semibold mb-2">アプリが起動しない場合</h3>
-              <ul className="text-gray-300 text-sm list-disc list-inside space-y-1">
-                <li>デバイスの再起動を試してください</li>
-                <li>アプリを最新バージョンに更新してください</li>
-                <li>十分な空き容量があることを確認してください</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white/5 rounded-lg p-4">
-              <h3 className="text-white font-semibold mb-2">同期が正常に動作しない場合</h3>
-              <ul className="text-gray-300 text-sm list-disc list-inside space-y-1">
-                <li>インターネット接続を確認してください</li>
-                <li>設定でクラウド同期が有効になっていることを確認してください</li>
-                <li>アカウントの認証状態を確認してください</li>
-              </ul>
-            </div>
+            <ul className="space-y-2">
+              <li><strong className="text-white">メール：</strong><a href="mailto:support@liv-jpn.com" className="text-purple-300 hover:text-purple-200 transition-colors">support@liv-jpn.com</a></li>
+              <li><strong className="text-white">アプリ内：</strong>「設定 ＞ お問い合わせ」から送信可能</li>
+              <li><strong className="text-white">対応時間：</strong>平日 9:00〜18:00</li>
+              <li><strong className="text-white">回答目安：</strong>24時間以内</li>
+            </ul>
           </div>
         </section>
       </div>

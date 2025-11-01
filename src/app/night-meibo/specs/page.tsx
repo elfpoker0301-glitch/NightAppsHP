@@ -8,62 +8,106 @@ export default function NightMeiboSpecs() {
     >
       <div className="max-w-4xl mx-auto">
         <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">システム仕様</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">📝 基本概要</h2>
+          <div className="text-gray-300 space-y-3">
+            <p>Night名簿帳は、ナイト業界で働くスタッフの情報を効率的に管理するための専用アプリです。</p>
+            <div className="bg-white/5 rounded-lg p-4 mt-4">
+              <h3 className="text-lg font-semibold text-white mb-2">対応環境</h3>
+              <ul className="list-disc list-inside space-y-1 pl-2">
+                <li>iOS 12.0以降</li>
+                <li>iPhone、iPad対応</li>
+              </ul>
+            </div>
+            <div className="bg-white/5 rounded-lg p-4">
+              <h3 className="text-lg font-semibold text-white mb-2">開発者情報</h3>
+              <p>開発者: HIDETA UTSUNO</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
+          <h2 className="text-2xl font-bold text-white mb-6">🔧 主な機能</h2>
           
           <div className="space-y-6 text-gray-300">
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-3">対応プラットフォーム</h3>
+            <div className="bg-white/5 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">📋 スタッフ管理</h3>
               <ul className="list-disc list-inside space-y-2 pl-4">
-                <li>iOS 14.0以降</li>
-                <li>Android 8.0（APIレベル26）以降</li>
+                <li>スタッフの基本情報登録（名前、年齢、連絡先等）</li>
+                <li>身分証明書の写真撮影・保存</li>
+                <li>勤務店舗の割り当て</li>
+                <li>職位・ランクの設定</li>
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-3">主要機能</h3>
+            <div className="bg-white/5 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">🏪 店舗管理</h3>
               <ul className="list-disc list-inside space-y-2 pl-4">
-                <li>連絡先の追加・編集・削除</li>
-                <li>カテゴリ別分類</li>
-                <li>高度な検索機能</li>
-                <li>データのインポート・エクスポート</li>
-                <li>クラウドバックアップ</li>
-                <li>データ暗号化</li>
+                <li>複数店舗の情報管理</li>
+                <li>店舗別スタッフ配置</li>
+                <li>店舗情報の編集・削除</li>
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-3">技術仕様</h3>
-              <div className="bg-white/5 rounded-lg p-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-semibold text-white mb-2">フロントエンド</h4>
-                    <p className="text-sm">React Native</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-2">バックエンド</h4>
-                    <p className="text-sm">Node.js + Express</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-2">データベース</h4>
-                    <p className="text-sm">MongoDB</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-2">認証</h4>
-                    <p className="text-sm">JWT + OAuth2.0</p>
-                  </div>
-                </div>
+            <div className="bg-white/5 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">📄 出力機能</h3>
+              <ul className="list-disc list-inside space-y-2 pl-4">
+                <li>PDF形式でのスタッフリスト出力</li>
+                <li>Excel形式でのデータエクスポート</li>
+                <li>印刷・共有機能</li>
+              </ul>
+            </div>
+
+            <div className="bg-white/5 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">📱 写真管理</h3>
+              <ul className="list-disc list-inside space-y-2 pl-4">
+                <li>カメラ撮影・ギャラリー選択</li>
+                <li>身分証明書の安全な保存</li>
+                <li>写真の閲覧・削除</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-white mb-6">📊 技術仕様</h2>
+          
+          <div className="bg-white/5 rounded-lg p-6">
+            <div className="grid md:grid-cols-2 gap-6 text-gray-300">
+              <div>
+                <h4 className="font-semibold text-white mb-2">プラットフォーム</h4>
+                <p className="text-sm">iOS（iPhone・iPad対応）</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">開発環境</h4>
+                <p className="text-sm">Flutter 3.32.8</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">対応OS</h4>
+                <p className="text-sm">iOS 12.0以降</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">データベース</h4>
+                <p className="text-sm">SQLite（ローカル）</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">広告</h4>
+                <p className="text-sm">Google AdMob</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">課金</h4>
+                <p className="text-sm">App Store In-App Purchase</p>
               </div>
             </div>
+          </div>
 
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-3">セキュリティ</h3>
-              <ul className="list-disc list-inside space-y-2 pl-4">
-                <li>AES-256暗号化</li>
-                <li>HTTPS通信</li>
-                <li>生体認証対応</li>
-                <li>定期的なセキュリティ監査</li>
-              </ul>
-            </div>
+          <div className="mt-6 bg-white/5 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-white mb-4">🖥 システム要件</h3>
+            <ul className="list-disc list-inside space-y-2 pl-4 text-gray-300">
+              <li>iOS：14.0以降</li>
+              <li>macOS：11.0以降</li>
+              <li>容量：50MB以上</li>
+              <li>ネットワーク：インターネット接続必須（同期機能あり）</li>
+            </ul>
           </div>
         </section>
       </div>
