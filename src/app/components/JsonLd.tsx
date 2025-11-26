@@ -69,6 +69,23 @@ export default function JsonLd() {
         "@type": "Person",
         name: "HIDETA UTSUNO"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Night PDF",
+      applicationCategory: "ProductivityApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "JPY"
+      },
+      description: "バケツ塗り機能搭載のPDF編集アプリケーション",
+      author: {
+        "@type": "Person",
+        name: "HIDETA UTSUNO"
+      }
     }
   ];
 

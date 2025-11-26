@@ -23,7 +23,8 @@ export default function Navigation() {
             <div className="absolute top-full left-0 mt-2 w-48 bg-white/10 backdrop-blur-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
               <Link href="/night-meibo" className="block px-4 py-2 text-sm hover:bg-white/20 rounded-t-lg">Night名簿帳</Link>
               <Link href="/night-keiyaku" className="block px-4 py-2 text-sm hover:bg-white/20">Night契約書</Link>
-              <Link href="/night-afterback" className="block px-4 py-2 text-sm hover:bg-white/20 rounded-b-lg">Nightアフターバック</Link>
+              <Link href="/night-afterback" className="block px-4 py-2 text-sm hover:bg-white/20">Nightアフターバック</Link>
+              <Link href="/night-pdf" className="block px-4 py-2 text-sm hover:bg-white/20 rounded-b-lg">Night PDF</Link>
             </div>
           </div>
           
@@ -52,6 +53,7 @@ export default function Navigation() {
             <Link href="/night-meibo" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Night名簿帳</Link>
             <Link href="/night-keiyaku" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Night契約書</Link>
             <Link href="/night-afterback" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Nightアフターバック</Link>
+            <Link href="/night-pdf" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Night PDF</Link>
           </div>
           <Link href="/news" className="block py-2 text-white hover:text-purple-300 transition-colors">お知らせ</Link>
           <Link href="/contact" className="block py-2 text-white hover:text-purple-300 transition-colors">お問い合わせ</Link>
