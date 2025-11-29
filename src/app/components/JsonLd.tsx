@@ -86,6 +86,23 @@ export default function JsonLd() {
         "@type": "Person",
         name: "HIDETA UTSUNO"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Night Dice",
+      applicationCategory: "GameApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "JPY"
+      },
+      description: "2〜8人で楽しむ伝統的なチンチロゲームアプリ",
+      author: {
+        "@type": "Person",
+        name: "HIDETA UTSUNO"
+      }
     }
   ];
 
