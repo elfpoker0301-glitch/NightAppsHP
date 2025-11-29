@@ -142,7 +142,7 @@ export default function NightDicePage() {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link
             href="/night-dice/specs"
             className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-105 text-center group"
@@ -179,6 +179,19 @@ export default function NightDicePage() {
             </h3>
             <p className="text-sm text-gray-400">
               ご利用前にご確認ください
+            </p>
+          </Link>
+
+          <Link
+            href="/night-dice/privacy"
+            className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-105 text-center group"
+          >
+            <div className="text-4xl mb-3">🔒</div>
+            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+              プライバシーポリシー
+            </h3>
+            <p className="text-sm text-gray-400">
+              個人情報の取り扱い
             </p>
           </Link>
         </div>
