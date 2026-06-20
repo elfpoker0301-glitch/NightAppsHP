@@ -280,6 +280,48 @@ export default function Home() {
           </div>
 
           <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-700 to-amber-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-yellow-600/30 hover:border-yellow-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600 to-amber-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-3xl font-bold text-white">Girls Back</h2>
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-600 to-amber-500 rounded-xl flex items-center justify-center">
+                  <span className="text-2xl">💎</span>
+                </div>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                キャバクラ・クラブで働く女性のためのアフターバック収入管理アプリ。未収管理・店舗管理・グラフ表示をラグジュアリーなデザインで。
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-gray-400">
+                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  バック収入・未収管理
+                </div>
+                <div className="flex items-center text-gray-400">
+                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  パスコードで安全保護
+                </div>
+                <div className="flex items-center text-gray-400">
+                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  6ヶ月グラフ・店舗管理
+                </div>
+              </div>
+              <Link
+                href="/girls-back"
+                className="block text-center w-full bg-gradient-to-r from-yellow-600 to-amber-600 text-white py-3 px-6 rounded-xl hover:from-yellow-700 hover:to-amber-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-yellow-500/50"
+              >
+                詳細を見る
+              </Link>
+            </div>
+          </div>
+
+          <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
             <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50">
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
@@ -328,7 +370,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="group">
               <div className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                5+
+                6+
               </div>
               <div className="text-gray-400 text-lg">アプリケーション</div>
             </div>
