@@ -103,6 +103,23 @@ export default function JsonLd() {
         "@type": "Person",
         name: "HIDETA UTSUNO"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "ゴミの日！",
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "JPY"
+      },
+      description: "地域を選ぶだけでゴミ収集日を管理できるシンプルなアプリ",
+      author: {
+        "@type": "Person",
+        name: "HIDETA UTSUNO"
+      }
     }
   ];
 

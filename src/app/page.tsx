@@ -362,6 +362,61 @@ export default function Home() {
               </Link>
             </div>
           </div>
+
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-green-500/30 hover:border-green-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-500 to-teal-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-3xl font-bold text-white">ゴミの日！</h2>
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center">
+                  <span className="text-2xl">🗑️</span>
+                </div>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                地域を選ぶだけでゴミ収集日を管理できるシンプルなアプリ。通知とウィジェットでゴミ出し忘れを防止。
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-gray-400">
+                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  かんたん地域設定
+                </div>
+                <div className="flex items-center text-gray-400">
+                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  前日・当日通知
+                </div>
+                <div className="flex items-center text-gray-400">
+                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  ホーム画面ウィジェット
+                </div>
+              </div>
+              <div className="space-y-3">
+                <a
+                  href="https://apps.apple.com/jp/app/id6782357102"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-3 px-6 rounded-xl hover:from-green-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-green-500/50"
+                >
+                  <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                  </svg>
+                  App Storeでダウンロード
+                </a>
+                <Link
+                  href="/gomi-no-hi"
+                  className="block text-center w-full bg-gray-800/50 backdrop-blur-sm text-white py-3 px-6 rounded-xl hover:bg-gray-800 transition-all duration-300 border border-green-500/30 hover:border-green-500 font-semibold"
+                >
+                  詳細を見る
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -370,7 +425,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="group">
               <div className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                6+
+                8+
               </div>
               <div className="text-gray-400 text-lg">アプリケーション</div>
             </div>
