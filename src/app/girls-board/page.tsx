@@ -1,127 +1,119 @@
 import Layout from "../components/Layout";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Girls Board - キャバ嬢のための顧客管理・売上管理アプリ",
-  description: "キャバクラ・ガールズバーで働く女性のための顧客管理＆売上管理アプリ。月別売上ダッシュボード・指名客来店アラート・日報シェアをラグジュアリーなデザインで。",
-};
+const APP_COLOR = "#a855f7";
 
 export default function GirlsBoardPage() {
   return (
     <Layout
       title="Girls Board"
-      description="顧客管理・売上管理アプリ"
+      description="キャバクラ・ガールズバーで働く女性のための顧客管理＆売上管理アプリ。月別売上ダッシュボード・指名客来店アラート・日報シェアをラグジュアリーなデザインで。"
     >
-      <div className="max-w-4xl mx-auto">
+      <div style={{ maxWidth: 860 }}>
 
-        {/* Hero */}
-        <section className="relative bg-gradient-to-br from-yellow-900/40 to-gray-900/60 backdrop-blur-lg rounded-2xl p-8 mb-8 border border-yellow-700/30 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/5 to-transparent pointer-events-none" />
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <img
-              src="/girls-board-icon.png"
-              alt="Girls Board アイコン"
-              className="w-28 h-28 rounded-3xl shadow-2xl shadow-yellow-500/30 flex-shrink-0"
-            />
-            <div>
-              <h2 className="text-3xl font-bold text-yellow-400 mb-3 tracking-wider">Girls Board</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                キャバクラ・ガールズバーで働く女性のための顧客管理＆売上管理アプリ。<br />
-                指名客の来店アラート・誕生日・売上集計・日報シェアをラグジュアリーなデザインで一元管理。
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-600/40 rounded-full text-yellow-400 text-xs font-semibold">来店アラート</span>
-                <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-600/40 rounded-full text-yellow-400 text-xs font-semibold">売上管理</span>
-                <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-600/40 rounded-full text-yellow-400 text-xs font-semibold">日報シェア</span>
-                <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-600/40 rounded-full text-yellow-400 text-xs font-semibold">誕生日管理</span>
-                <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-600/40 rounded-full text-yellow-400 text-xs font-semibold">無料</span>
+        {/* アイコン + タグ群 */}
+        <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 40 }}>
+          <img
+            src="/girls-board-icon.png"
+            alt="Girls Board アイコン"
+            style={{ width: 88, height: 88, borderRadius: 20, flexShrink: 0 }}
+          />
+          <div>
+            <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 12 }}>
+              キャバクラ・ガールズバーで働く女性のための顧客管理＆売上管理アプリ。
+              指名客の来店アラート・誕生日・売上集計・日報シェアをラグジュアリーなデザインで一元管理。
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {["来店アラート", "売上管理", "日報シェア", "誕生日管理", "無料"].map(t => (
+                <span key={t} style={{
+                  fontSize: 12, fontWeight: 600, padding: "4px 12px",
+                  border: `1px solid ${APP_COLOR}40`,
+                  borderRadius: 100, color: APP_COLOR,
+                  background: `${APP_COLOR}10`
+                }}>{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* サブページナビゲーション */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 48 }}>
+          {[
+            { href: "/girls-board/specs", label: "仕様詳細" },
+            { href: "/girls-board/terms", label: "利用規約" },
+            { href: "/girls-board/support", label: "サポート" },
+            { href: "/girls-board/privacy", label: "プライバシーポリシー" },
+          ].map(item => (
+            <Link key={item.href} href={item.href} style={{
+              display: "block", padding: "16px 12px", textAlign: "center",
+              background: "var(--bg2)", border: "1px solid var(--line)",
+              borderRadius: 12, textDecoration: "none",
+              fontSize: 13, fontWeight: 600, color: "var(--text)"
+            }}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* 売上管理 */}
+        <section style={{ marginBottom: 40 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 6 }}>
+            売上管理
+          </h2>
+          <p style={{ fontSize: 13, color: "var(--light)", marginBottom: 16 }}>月別の売上を記録・集計・シェアできます</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+            {[
+              { title: "月別ダッシュボード", desc: "売上高・小計・接客数・場内指名数・本指名数・ボトル数・ドリンク数を月ごとに集計。月間目標と達成率も表示。" },
+              { title: "売上登録", desc: "客名・指名種別（フリー/場内/本指名）・同伴・ボトル・キープボトル・ドリンク・メモを登録。顧客管理と自動連携。" },
+              { title: "カレンダー・日報", desc: "月カレンダーで登録状況を一覧表示。日付タップで日報をシェア。月次レポートもワンタップで共有できます。" },
+            ].map(f => (
+              <div key={f.title} style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "20px 22px" }}>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: APP_COLOR, marginBottom: 8 }}>{f.title}</h3>
+                <p style={{ fontSize: 13, color: "var(--mid)", lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
               </div>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* Nav Menu */}
-        <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          <Link href="/girls-board/specs" className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 block">
-            <div className="text-2xl mb-3">📋</div>
-            <h3 className="text-white font-semibold mb-2">仕様詳細</h3>
-            <p className="text-gray-400 text-sm">機能と仕様について</p>
-          </Link>
-          <Link href="/girls-board/terms" className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 block">
-            <div className="text-2xl mb-3">📄</div>
-            <h3 className="text-white font-semibold mb-2">利用規約</h3>
-            <p className="text-gray-400 text-sm">ご利用にあたって</p>
-          </Link>
-          <Link href="/girls-board/support" className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 block">
-            <div className="text-2xl mb-3">🔧</div>
-            <h3 className="text-white font-semibold mb-2">サポート</h3>
-            <p className="text-gray-400 text-sm">お困りの際は</p>
-          </Link>
-          <Link href="/girls-board/privacy" className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 block">
-            <div className="text-2xl mb-3">🔒</div>
-            <h3 className="text-white font-semibold mb-2">プライバシーポリシー</h3>
-            <p className="text-gray-400 text-sm">個人情報保護について</p>
-          </Link>
-        </section>
-
-        {/* Sales Management */}
-        <section className="bg-gradient-to-br from-yellow-900/30 to-gray-900/60 backdrop-blur-lg rounded-2xl p-8 mb-8 border border-yellow-700/20">
-          <h2 className="text-2xl font-bold text-yellow-400 mb-2">💰 売上管理</h2>
-          <p className="text-gray-400 text-sm mb-6">月別の売上を記録・集計・シェアできます</p>
-          <div className="grid md:grid-cols-3 gap-5">
-            <div className="bg-black/30 rounded-xl p-5 border border-yellow-700/20">
-              <h3 className="text-yellow-300 font-semibold mb-2">📊 月別ダッシュボード</h3>
-              <p className="text-gray-300 text-sm">売上高・小計・接客数・場内指名数・本指名数・ボトル数・ドリンク数を月ごとに集計。月間目標と達成率も表示。</p>
-            </div>
-            <div className="bg-black/30 rounded-xl p-5 border border-yellow-700/20">
-              <h3 className="text-yellow-300 font-semibold mb-2">📝 売上登録</h3>
-              <p className="text-gray-300 text-sm">客名・指名種別（フリー/場内/本指名）・同伴・ボトル・キープボトル・ドリンク・メモを登録。顧客管理と自動連携。</p>
-            </div>
-            <div className="bg-black/30 rounded-xl p-5 border border-yellow-700/20">
-              <h3 className="text-yellow-300 font-semibold mb-2">📅 カレンダー・日報</h3>
-              <p className="text-gray-300 text-sm">月カレンダーで登録状況を一覧表示。日付タップで日報をシェア。月次レポートもワンタップで共有できます。</p>
-            </div>
+        {/* 顧客管理 */}
+        <section style={{ marginBottom: 40 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 6 }}>
+            顧客管理
+          </h2>
+          <p style={{ fontSize: 13, color: "var(--light)", marginBottom: 16 }}>指名客の情報をまとめて管理できます</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
+            {[
+              { title: "ダッシュボード", desc: "指名客数・1/3/6ヶ月未来店客・誕生日客・要注意客・NG客をワンタップで確認。" },
+              { title: "客一覧・客登録", desc: "名前・ふりがな・連絡先・誕生日・血液型などを登録。名前順・来店順・来店回数順で並び替え・検索対応。" },
+              { title: "来店履歴・売上履歴", desc: "来店日・種別・売上を複数登録。売上管理で登録した記録も顧客ページに自動反映されます。" },
+              { title: "要注意客・NG客", desc: "トラブルがあった客にフラグを立て、ダッシュボードから即座に確認できます。" },
+            ].map(f => (
+              <div key={f.title} style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "20px 22px" }}>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: APP_COLOR, marginBottom: 8 }}>{f.title}</h3>
+                <p style={{ fontSize: 13, color: "var(--mid)", lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Customer Management */}
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-2">👥 顧客管理</h2>
-          <p className="text-gray-400 text-sm mb-6">指名客の情報をまとめて管理できます</p>
-          <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white/5 rounded-xl p-5">
-              <h3 className="text-yellow-400 font-semibold mb-2">💎 ダッシュボード</h3>
-              <p className="text-gray-300 text-sm">指名客数・1/3/6ヶ月未来店客・誕生日客・要注意客・NG客をワンタップで確認。</p>
-            </div>
-            <div className="bg-white/5 rounded-xl p-5">
-              <h3 className="text-yellow-400 font-semibold mb-2">📒 客一覧・客登録</h3>
-              <p className="text-gray-300 text-sm">名前・ふりがな・連絡先・誕生日・血液型などを登録。名前順・来店順・来店回数順で並び替え・検索対応。</p>
-            </div>
-            <div className="bg-white/5 rounded-xl p-5">
-              <h3 className="text-yellow-400 font-semibold mb-2">📅 来店履歴・売上履歴</h3>
-              <p className="text-gray-300 text-sm">来店日・種別・売上を複数登録。売上管理で登録した記録も顧客ページに自動反映されます。</p>
-            </div>
-            <div className="bg-white/5 rounded-xl p-5">
-              <h3 className="text-yellow-400 font-semibold mb-2">⚠️ 要注意客・NG客</h3>
-              <p className="text-gray-300 text-sm">トラブルがあった客にフラグを立て、ダッシュボードから即座に確認できます。</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Security */}
-        <section className="bg-gradient-to-r from-gray-800/50 to-yellow-900/20 backdrop-blur-lg rounded-2xl p-8 border border-yellow-700/20">
-          <h2 className="text-2xl font-bold text-white mb-4">🔐 セキュリティ</h2>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex items-start gap-3">
-              <span className="text-yellow-400 mt-0.5">✓</span>
-              <span>顧客データ・売上データはすべてデバイス内にのみ保存。外部サーバーへの送信は一切ありません。</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-yellow-400 mt-0.5">✓</span>
-              <span>ローカルバックアップ機能でデータを安全に引き継げます。顧客・売上・設定データをまとめてバックアップ。</span>
-            </li>
+        {/* セキュリティ */}
+        <section style={{ marginBottom: 40, background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "20px 22px" }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 18, fontWeight: 800, letterSpacing: -0.5, marginBottom: 14 }}>
+            セキュリティ
+          </h2>
+          <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+            {[
+              "顧客データ・売上データはすべてデバイス内にのみ保存。外部サーバーへの送信は一切ありません。",
+              "ローカルバックアップ機能でデータを安全に引き継げます。顧客・売上・設定データをまとめてバックアップ。",
+            ].map((item, i) => (
+              <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: i === 0 ? 10 : 0 }}>
+                <span style={{ color: APP_COLOR, fontWeight: 700, flexShrink: 0 }}>✓</span>
+                <span style={{ fontSize: 13, color: "var(--mid)", lineHeight: 1.7 }}>{item}</span>
+              </li>
+            ))}
           </ul>
         </section>
+
       </div>
     </Layout>
   );

@@ -1,200 +1,136 @@
-import Link from "next/link";
 import Layout from "../components/Layout";
+import Link from "next/link";
 
-export const metadata = {
-  title: "Night Dice - チンチロゲーム | NightApp",
-  description: "2〜8人で楽しむ伝統的なサイコロゲーム。友達や家族との集まりに最適なパーティーゲームアプリ。",
-  keywords: "チンチロ,サイコロ,ダイス,パーティーゲーム,対戦,マルチプレイヤー,Night Dice",
-  openGraph: {
-    title: "Night Dice - チンチロゲーム",
-    description: "2〜8人で楽しむ伝統的なサイコロゲーム",
-    url: "https://apps.liv-jpn.com/night-dice",
-  },
-};
+const APP_COLOR = "#10b981";
 
 export default function NightDicePage() {
   return (
-    <Layout>
-      <div className="text-center py-16">
-        <div className="inline-block mb-6">
-          <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl flex items-center justify-center text-5xl shadow-2xl shadow-emerald-500/50">
+    <Layout
+      title="Night Dice"
+      description="2〜8人で楽しむ伝統的なサイコロゲーム。友達や家族との集まりに最適なパーティーゲームアプリ。"
+    >
+      <div style={{ maxWidth: 860 }}>
+
+        {/* アイコン + タグ群 */}
+        <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 40 }}>
+          <div style={{
+            width: 88, height: 88, borderRadius: 20,
+            background: APP_COLOR,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            flexShrink: 0, fontSize: 40
+          }}>
             🎲
           </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {["チンチロ", "2〜8人対戦", "パーティーゲーム", "サイコロアニメーション"].map(t => (
+              <span key={t} style={{
+                fontSize: 12, fontWeight: 600, padding: "4px 12px",
+                border: `1px solid ${APP_COLOR}40`,
+                borderRadius: 100, color: APP_COLOR,
+                background: `${APP_COLOR}10`
+              }}>{t}</span>
+            ))}
+          </div>
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-          Night Dice
-        </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          2〜8人で楽しむ伝統的なサイコロゲーム
-        </p>
-      </div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <span className="text-3xl mr-3">🎯</span>
+        {/* サブページナビゲーション */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 48 }}>
+          {[
+            { href: "/night-dice/specs", label: "仕様詳細" },
+            { href: "/night-dice/terms", label: "利用規約" },
+            { href: "/night-dice/support", label: "サポート" },
+            { href: "/night-dice/privacy", label: "プライバシーポリシー" },
+          ].map(item => (
+            <Link key={item.href} href={item.href} style={{
+              display: "block", padding: "16px 12px", textAlign: "center",
+              background: "var(--bg2)", border: "1px solid var(--line)",
+              borderRadius: 12, textDecoration: "none",
+              fontSize: 13, fontWeight: 600, color: "var(--text)"
+            }}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* キャッチ */}
+        <section style={{ marginBottom: 40 }}>
+          <p style={{ fontSize: 18, fontWeight: 700, color: "var(--text)", marginBottom: 8 }}>
+            2〜8人で楽しむ伝統的なサイコロゲーム
+          </p>
+        </section>
+
+        {/* 機能セクション */}
+        <section style={{ marginBottom: 40 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 20 }}>
             ゲームの特徴
           </h2>
-          <div className="space-y-4 text-gray-300">
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-semibold text-white">2人から8人まで対戦可能</p>
-                <p className="text-sm text-gray-400">友達や家族みんなで楽しめる</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
+            {[
+              { title: "2人から8人まで対戦可能", desc: "友達や家族みんなで楽しめる" },
+              { title: "シンプルで分かりやすいルール", desc: "誰でもすぐに始められる" },
+              { title: "美しいダイスアニメーション", desc: "リアルなサイコロの動きを再現" },
+              { title: "直感的な操作性", desc: "タップするだけで簡単プレイ" },
+            ].map(f => (
+              <div key={f.title} style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "20px 22px" }}>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: APP_COLOR, marginBottom: 8 }}>{f.title}</h3>
+                <p style={{ fontSize: 13, color: "var(--mid)", lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
               </div>
-            </div>
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-semibold text-white">シンプルで分かりやすいルール</p>
-                <p className="text-sm text-gray-400">誰でもすぐに始められる</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-semibold text-white">美しいダイスアニメーション</p>
-                <p className="text-sm text-gray-400">リアルなサイコロの動きを再現</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <div>
-                <p className="font-semibold text-white">直感的な操作性</p>
-                <p className="text-sm text-gray-400">タップするだけで簡単プレイ</p>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <span className="text-3xl mr-3">🎮</span>
+        {/* 遊び方 */}
+        <section style={{ marginBottom: 40 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 16 }}>
             遊び方
           </h2>
-          <div className="space-y-4 text-gray-300">
-            <p className="leading-relaxed">
+          <div style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "20px 22px" }}>
+            <p style={{ fontSize: 13, color: "var(--mid)", lineHeight: 1.8, marginBottom: 12 }}>
               サイコロを3つ振って、出た目で勝負！伝統的なチンチロのルールで、役の強さを競い合います。
             </p>
-            <div className="bg-white/5 rounded-lg p-4 space-y-2">
-              <p className="text-sm font-semibold text-emerald-400">強い役の例：</p>
-              <ul className="text-sm space-y-1 text-gray-400">
-                <li>• ピンゾロ（1のゾロ目）</li>
-                <li>• その他のゾロ目</li>
-                <li>• シゴロ（4・5・6）</li>
-                <li>• 目（2つ同じ数字 + 1つ違う数字）</li>
-              </ul>
-            </div>
+            <p style={{ fontSize: 12, fontWeight: 600, color: APP_COLOR, marginBottom: 8 }}>強い役の例：</p>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", fontSize: 13, color: "var(--mid)", lineHeight: 2 }}>
+              <li>・ピンゾロ（1のゾロ目）</li>
+              <li>・その他のゾロ目</li>
+              <li>・シゴロ（4・5・6）</li>
+              <li>・目（2つ同じ数字 + 1つ違う数字）</li>
+            </ul>
           </div>
         </section>
-      </div>
 
-      <div className="max-w-6xl mx-auto mb-16">
-        <section className="bg-gradient-to-br from-emerald-900/50 to-teal-900/50 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <span className="text-3xl mr-3">✨</span>
+        {/* こんな時におすすめ */}
+        <section style={{ marginBottom: 40 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 16 }}>
             こんな時におすすめ
           </h2>
-          <div className="grid md:grid-cols-2 gap-6 text-gray-300">
-            <div className="flex items-start space-x-3">
-              <span className="text-2xl">🎉</span>
-              <div>
-                <p className="font-semibold text-white">友達との集まりやパーティーで</p>
-                <p className="text-sm text-gray-400">盛り上がること間違いなし</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
+            {[
+              { emoji: "🎉", title: "友達との集まりやパーティーで", desc: "盛り上がること間違いなし" },
+              { emoji: "👨‍👩‍👧‍👦", title: "家族団らんの時間に", desc: "世代を超えて楽しめる" },
+              { emoji: "⏰", title: "待ち時間の暇つぶしに", desc: "短時間でサクッとプレイ" },
+              { emoji: "🎲", title: "ゲーム好きな仲間と", desc: "伝統ゲームの奥深さを堪能" },
+            ].map(item => (
+              <div key={item.title} style={{ display: "flex", gap: 12, background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "16px 18px" }}>
+                <span style={{ fontSize: 22, flexShrink: 0 }}>{item.emoji}</span>
+                <div>
+                  <p style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", margin: "0 0 4px" }}>{item.title}</p>
+                  <p style={{ fontSize: 12, color: "var(--mid)", margin: 0 }}>{item.desc}</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <span className="text-2xl">👨‍👩‍👧‍👦</span>
-              <div>
-                <p className="font-semibold text-white">家族団らんの時間に</p>
-                <p className="text-sm text-gray-400">世代を超えて楽しめる</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <span className="text-2xl">⏰</span>
-              <div>
-                <p className="font-semibold text-white">待ち時間の暇つぶしに</p>
-                <p className="text-sm text-gray-400">短時間でサクッとプレイ</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <span className="text-2xl">🎲</span>
-              <div>
-                <p className="font-semibold text-white">ゲーム好きな仲間と</p>
-                <p className="text-sm text-gray-400">伝統ゲームの奥深さを堪能</p>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
-      </div>
 
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30">
-          <h2 className="text-2xl font-bold text-white mb-4">
+        {/* 注意書き */}
+        <section style={{ marginBottom: 40, background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "20px 22px" }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 16, fontWeight: 800, marginBottom: 8 }}>
             娯楽目的のゲームアプリです
           </h2>
-          <p className="text-gray-300 leading-relaxed">
-            Night Diceは純粋に娯楽を目的としたサイコロゲームアプリです。実際の金銭の授受は一切行いません。
-            <br />
-            実際の賭博行為を推奨・助長するものではありません。
+          <p style={{ fontSize: 13, color: "var(--mid)", lineHeight: 1.8, margin: 0 }}>
+            Night Diceは純粋に娯楽を目的としたサイコロゲームアプリです。実際の金銭の授受は一切行いません。実際の賭博行為を推奨・助長するものではありません。
           </p>
-        </div>
-      </div>
+        </section>
 
-      <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Link
-            href="/night-dice/specs"
-            className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-105 text-center group"
-          >
-            <div className="text-4xl mb-3">📋</div>
-            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-              仕様
-            </h3>
-            <p className="text-sm text-gray-400">
-              詳細な機能と技術仕様
-            </p>
-          </Link>
-
-          <Link
-            href="/night-dice/support"
-            className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-105 text-center group"
-          >
-            <div className="text-4xl mb-3">💬</div>
-            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-              サポート
-            </h3>
-            <p className="text-sm text-gray-400">
-              よくある質問とお問い合わせ
-            </p>
-          </Link>
-
-          <Link
-            href="/night-dice/terms"
-            className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-105 text-center group"
-          >
-            <div className="text-4xl mb-3">📄</div>
-            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-              利用規約
-            </h3>
-            <p className="text-sm text-gray-400">
-              ご利用前にご確認ください
-            </p>
-          </Link>
-
-          <Link
-            href="/night-dice/privacy"
-            className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-105 text-center group"
-          >
-            <div className="text-4xl mb-3">🔒</div>
-            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-              プライバシーポリシー
-            </h3>
-            <p className="text-sm text-gray-400">
-              個人情報の取り扱い
-            </p>
-          </Link>
-        </div>
       </div>
     </Layout>
   );
