@@ -26,7 +26,9 @@ export default function Navigation() {
               <Link href="/night-afterback" className="block px-4 py-2 text-sm hover:bg-white/20">Nightアフターバック</Link>
               <Link href="/night-pdf" className="block px-4 py-2 text-sm hover:bg-white/20">Night PDF</Link>
               <Link href="/night-dice" className="block px-4 py-2 text-sm hover:bg-white/20">Night Dice</Link>
-              <Link href="/gomi-no-hi" className="block px-4 py-2 text-sm hover:bg-white/20 rounded-b-lg">ゴミの日！</Link>
+              <Link href="/gomi-no-hi" className="block px-4 py-2 text-sm hover:bg-white/20">ゴミの日！</Link>
+              <Link href="/girls-board" className="block px-4 py-2 text-sm hover:bg-white/20">Girls Board</Link>
+              <Link href="/girls-back" className="block px-4 py-2 text-sm hover:bg-white/20 rounded-b-lg">Girls Back</Link>
             </div>
           </div>
           
@@ -58,6 +60,8 @@ export default function Navigation() {
             <Link href="/night-pdf" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Night PDF</Link>
             <Link href="/night-dice" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Night Dice</Link>
             <Link href="/gomi-no-hi" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">ゴミの日！</Link>
+            <Link href="/girls-board" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Girls Board</Link>
+            <Link href="/girls-back" className="block py-1 pl-4 text-sm text-gray-300 hover:text-purple-300 transition-colors">Girls Back</Link>
           </div>
           <Link href="/news" className="block py-2 text-white hover:text-purple-300 transition-colors">お知らせ</Link>
           <Link href="/contact" className="block py-2 text-white hover:text-purple-300 transition-colors">お問い合わせ</Link>
