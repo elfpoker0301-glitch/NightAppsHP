@@ -2,18 +2,18 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const viewport: Viewport = {
-  themeColor: "#05050A",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
   title: {
-    default: "NightApp — Apps Collection",
+    default: "NightApp — App Collection",
     template: "%s | NightApp",
   },
   description:
-    "ナイトワーク・日常生活を支援するiOSアプリコレクション。顧客管理・売上管理・契約書・PDF・育児・ゴミ出しまで、毎日使えるアプリを一か所に。",
+    "ナイト業界から日常生活まであらゆるシーンを支えるiOSアプリコレクション。Night名簿帳・Night契約書・Nightアフターバック・Girls Boardほか全9アプリ。",
   keywords: [
     "ナイト業界", "アプリ", "顧客管理", "売上管理", "Girls Board",
     "Night名簿帳", "Night契約書", "Nightアフターバック", "Girls Back",
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://apps.liv-jpn.com",
     siteName: "NightApp",
-    title: "NightApp — Apps Collection",
-    description: "ナイトワーク・日常生活を支援するiOSアプリコレクション",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "NightApp Apps Collection" }],
+    title: "NightApp — App Collection",
+    description: "ナイト業界から日常生活まであらゆるシーンを支えるiOSアプリコレクション",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "NightApp App Collection" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NightApp — Apps Collection",
-    description: "ナイトワーク・日常生活を支援するiOSアプリコレクション",
+    title: "NightApp — App Collection",
+    description: "ナイト業界から日常生活まであらゆるシーンを支えるiOSアプリコレクション",
     images: ["/og-image.png"],
   },
   robots: {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body className="noise antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

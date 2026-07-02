@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0;}
+    :root{
+      --bg:#ffffff;
+      --text:#0c0c0c;
+      --mid:#606060;
+      --light:#a0a0a0;
+      --line:#e2e2e2;
+      --line-mid:#c8c8c8;
+      --bg2:#f5f5f5;
+    }
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg);font-family:'DM Sans',-apple-system,'Hiragino Sans','Yu Gothic UI',sans-serif;color:var(--text);overflow-x:hidden;">
+
+  <!-- NAV -->
+  <nav id="nav" style="position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .25s;">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5px;width:18px;height:18px;">
+        <div style="background:#8b5cf6;border-radius:2px;"></div>
+        <div style="background:#ec4899;border-radius:2px;"></div>
+        <div style="background:#3b82f6;border-radius:2px;"></div>
+        <div style="background:#f97316;border-radius:2px;"></div>
+      </div>
+      <span style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.3px;">App Collection</span>
+    </a>
+    <div style="display:flex;gap:36px;align-items:center;">
+      <a href="#apps" style="color:var(--mid);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;" data-nav-link="">アプリ</a>
+      <a href="/news" style="color:var(--mid);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;" data-nav-link="">お知らせ</a>
+      <a href="/contact" style="display:inline-flex;align-items:center;background:var(--text);color:#fff;text-decoration:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:.01em;transition:opacity .2s;">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:64px 0 0;position:relative;overflow:hidden;">
+
+    <!-- dot grid bg -->
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle,#d8d8d8 1px,transparent 1px);background-size:28px 28px;opacity:.5;pointer-events:none;"></div>
+
+    <!-- Left: Editorial text -->
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:1;">
+      <div style="{{ heroReveal }}">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:40px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#8b5cf6;"></div>
+          <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);">iOS App Collection</span>
+          <div style="flex:1;height:1px;background:var(--line);max-width:60px;"></div>
+          <span style="font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--light);">8 APPS</span>
+        </div>
+
+        <h1 style="font-family:'Syne',sans-serif;font-size:clamp(72px,7.5vw,108px);font-weight:800;line-height:.88;letter-spacing:-4px;margin:0 0 32px;">
+          App<br>
+          <span style="color:#8b5cf6;">Coll</span>ection<span style="color:#8b5cf6;">.</span>
+        </h1>
+
+        <p style="font-size:17px;color:var(--mid);line-height:1.75;margin:0 0 48px;max-width:400px;">
+          ナイト業界から日常生活まで<br>あらゆるシーンを支えるアプリスイート
+        </p>
+
+        <div style="display:flex;gap:12px;align-items:center;">
+          <a href="#apps" style="display:inline-flex;align-items:center;gap:8px;background:#0c0c0c;color:#fff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;transition:opacity .2s;">
+            アプリを見る
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <a href="/contact" style="display:inline-flex;align-items:center;background:transparent;border:1.5px solid #c8c8c8;color:#0c0c0c;text-decoration:none;padding:13px 28px;border-radius:8px;font-size:15px;font-weight:500;">お問い合わせ</a>
+        </div>
+
+        <div style="display:flex;gap:40px;margin-top:64px;padding-top:40px;border-top:1px solid #e2e2e2;">
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px;color:#0c0c0c;">8<span style="color:#8b5cf6;font-size:20px;">+</span></div>
+            <div style="font-size:12px;color:#a0a0a0;font-weight:500;margin-top:2px;">アプリ数</div>
+          </div>
+          <div style="width:1px;background:#e2e2e2;"></div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px;color:#3b82f6;">iOS</div>
+            <div style="font-size:12px;color:#a0a0a0;font-weight:500;margin-top:2px;">対応プラットフォーム</div>
+          </div>
+          <div style="width:1px;background:#e2e2e2;"></div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px;">100<span style="color:#ec4899;font-size:20px;">%</span></div>
+            <div style="font-size:12px;color:#a0a0a0;font-weight:500;margin-top:2px;">セキュア設計</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: App mosaic -->
+    <div style="display:flex;align-items:center;justify-content:center;padding:100px 80px 80px 40px;position:relative;z-index:1;">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:380px;width:100%;">
+        <div style="aspect-ratio:1;border-radius:20px;background:#8b5cf6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s ease-in-out infinite;box-shadow:0 12px 32px rgba(139,92,246,.28);">
+          <span style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;">名</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">Night<br>名簿帳</span>
+        </div>
+        <div style="aspect-ratio:1;border-radius:20px;background:#3b82f6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s .5s ease-in-out infinite;box-shadow:0 12px 32px rgba(59,130,246,.28);">
+          <span style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;">契</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">Night<br>契約書</span>
+        </div>
+        <div style="aspect-ratio:1;border-radius:20px;background:#ec4899;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s 1s ease-in-out infinite;box-shadow:0 12px 32px rgba(236,72,153,.28);">
+          <span style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;">ア</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">After<br>Back</span>
+        </div>
+        <div style="aspect-ratio:1;border-radius:20px;background:#f97316;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s 1.5s ease-in-out infinite;box-shadow:0 12px 32px rgba(249,115,22,.28);">
+          <span style="font-family:'Syne',sans-serif;font-size:11px;font-weight:800;color:#fff;">PDF</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">Night<br>PDF</span>
+        </div>
+        <div style="aspect-ratio:1;border-radius:20px;background:#10b981;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s 2s ease-in-out infinite;box-shadow:0 12px 32px rgba(16,185,129,.28);">
+          <span style="font-size:22px;line-height:1;">🎲</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">Night<br>Dice</span>
+        </div>
+        <div style="aspect-ratio:1;border-radius:20px;background:#f59e0b;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s 2.5s ease-in-out infinite;box-shadow:0 12px 32px rgba(245,158,11,.28);">
+          <span style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;">G</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">Girls<br>Back</span>
+        </div>
+        <div style="aspect-ratio:1;border-radius:20px;background:#fb923c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s .3s ease-in-out infinite;box-shadow:0 12px 32px rgba(251,146,60,.28);">
+          <span style="font-size:22px;line-height:1;">⭐</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">子供<br>クエスト</span>
+        </div>
+        <div style="aspect-ratio:1;border-radius:20px;background:#22c55e;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;animation:float 3.8s .8s ease-in-out infinite;box-shadow:0 12px 32px rgba(34,197,94,.28);">
+          <span style="font-size:22px;line-height:1;">🗑</span>
+          <span style="font-size:7px;color:rgba(255,255,255,.7);text-align:center;line-height:1.3;font-weight:500;">ゴミ<br>の日！</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE — dark strip -->
+  <div style="background:#0c0c0c;overflow:hidden;padding:18px 0;border-top:1px solid #1a1a1a;">
+    <div style="display:flex;animation:marquee 28s linear infinite;width:max-content;">
+      <span style="white-space:nowrap;font-size:12px;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.14em;text-transform:uppercase;padding-right:4px;">Night名簿帳　/　Night契約書　/　Nightアフターバック　/　Night PDF　/　Night Dice　/　Girls Back　/　子供クエスト　/　ゴミの日！　/　</span>
+      <span style="white-space:nowrap;font-size:12px;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.14em;text-transform:uppercase;padding-right:4px;">Night名簿帳　/　Night契約書　/　Nightアフターバック　/　Night PDF　/　Night Dice　/　Girls Back　/　子供クエスト　/　ゴミの日！　/　</span>
+    </div>
+  </div>
+
+  <!-- APPS SECTION -->
+  <section id="apps" style="padding:100px 80px 80px;">
+    <div style="max-width:1280px;margin:0 auto;">
+
+      <!-- Section header 01 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:end;margin-bottom:52px;padding-bottom:28px;border-bottom:1.5px solid var(--text);">
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-size:80px;font-weight:800;line-height:1;color:var(--line-mid);letter-spacing:-4px;margin-bottom:-8px;">01</div>
+          <h2 style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.8px;margin:0;color:var(--text);">ナイト業界シリーズ</h2>
+        </div>
+        <div style="padding-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#8b5cf6;"></div>
+            <span style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#8b5cf6;">Night Industry</span>
+          </div>
+          <p style="font-size:14px;color:var(--mid);margin:0;line-height:1.6;">ナイトワーク特化の業務管理ツール。スタッフ管理から電子契約まで、業界に必要な機能をすべて網羅。</p>
+        </div>
+      </div>
+
+      <!-- Night Industry cards -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:80px;">
+
+        <!-- 名簿帳 -->
+        <div data-card="" data-color="#8b5cf6" data-rgb="139,92,246" style="background:#fff;border:1.5px solid #e2e2e2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;">
+          <div style="background:#8b5cf6;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff;">名</div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);">顧客管理</span>
+          </div>
+          <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin:0;letter-spacing:-.2px;">Night名簿帳</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <span style="font-size:10px;font-weight:600;color:#8b5cf6;background:rgba(139,92,246,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(139,92,246,.18);">顧客情報管理</span>
+              <span style="font-size:10px;font-weight:600;color:#8b5cf6;background:rgba(139,92,246,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(139,92,246,.18);">データ保護</span>
+              <span style="font-size:10px;font-weight:600;color:#8b5cf6;background:rgba(139,92,246,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(139,92,246,.18);">PDF出力</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-top:auto;">
+              <a href="https://apps.apple.com/jp/app/night%E5%90%8D%E7%B0%BF%E5%B8%B3/id6749575718" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:5px;background:#8b5cf6;color:#fff;text-decoration:none;padding:8px;border-radius:7px;font-size:11.5px;font-weight:600;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zm-2.02-15.03c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"></path></svg>
+                App Store
+              </a>
+              <a href="/night-meibo" style="display:flex;align-items:center;justify-content:center;border:1.5px solid #e2e2e2;color:#606060;text-decoration:none;padding:7px;border-radius:7px;font-size:11.5px;font-weight:500;">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 契約書 -->
+        <div data-card="" data-color="#3b82f6" data-rgb="59,130,246" style="background:#fff;border:1.5px solid #e2e2e2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;">
+          <div style="background:#3b82f6;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff;">契</div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);">契約管理</span>
+          </div>
+          <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin:0;letter-spacing:-.2px;">Night契約書</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <span style="font-size:10px;font-weight:600;color:#3b82f6;background:rgba(59,130,246,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(59,130,246,.18);">電子契約書</span>
+              <span style="font-size:10px;font-weight:600;color:#3b82f6;background:rgba(59,130,246,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(59,130,246,.18);">クラウド保存</span>
+              <span style="font-size:10px;font-weight:600;color:#3b82f6;background:rgba(59,130,246,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(59,130,246,.18);">法的効力</span>
+            </div>
+            <div style="margin-top:auto;">
+              <a href="/night-keiyaku" style="display:flex;align-items:center;justify-content:center;background:#3b82f6;color:#fff;text-decoration:none;padding:8px;border-radius:7px;font-size:11.5px;font-weight:600;">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- アフターバック -->
+        <div data-card="" data-color="#ec4899" data-rgb="236,72,153" style="background:#fff;border:1.5px solid #e2e2e2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;">
+          <div style="background:#ec4899;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff;">ア</div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);">アフター管理</span>
+          </div>
+          <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin:0;letter-spacing:-.2px;">Nightアフターバック</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <span style="font-size:10px;font-weight:600;color:#ec4899;background:rgba(236,72,153,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(236,72,153,.18);">アフター予約</span>
+              <span style="font-size:10px;font-weight:600;color:#ec4899;background:rgba(236,72,153,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(236,72,153,.18);">顧客分析</span>
+              <span style="font-size:10px;font-weight:600;color:#ec4899;background:rgba(236,72,153,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(236,72,153,.18);">リマインダー</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-top:auto;">
+              <a href="https://apps.apple.com/jp/app/night%E3%82%A2%E3%83%95%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF/id6751783629" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:5px;background:#ec4899;color:#fff;text-decoration:none;padding:8px;border-radius:7px;font-size:11.5px;font-weight:600;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zm-2.02-15.03c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"></path></svg>
+                App Store
+              </a>
+              <a href="/night-afterback" style="display:flex;align-items:center;justify-content:center;border:1.5px solid #e2e2e2;color:#606060;text-decoration:none;padding:7px;border-radius:7px;font-size:11.5px;font-weight:500;">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Night PDF -->
+        <div data-card="" data-color="#f97316" data-rgb="249,115,22" style="background:#fff;border:1.5px solid #e2e2e2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;">
+          <div style="background:#f97316;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:#fff;">PDF</div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);">PDF編集</span>
+          </div>
+          <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin:0;letter-spacing:-.2px;">Night PDF</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <span style="font-size:10px;font-weight:600;color:#f97316;background:rgba(249,115,22,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(249,115,22,.18);">バケツ塗り</span>
+              <span style="font-size:10px;font-weight:600;color:#f97316;background:rgba(249,115,22,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(249,115,22,.18);">PDF編集</span>
+              <span style="font-size:10px;font-weight:600;color:#f97316;background:rgba(249,115,22,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(249,115,22,.18);">リアルタイム描画</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-top:auto;">
+              <a href="https://apps.apple.com/us/app/nightpdf-ios/id6755779324" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:5px;background:#f97316;color:#fff;text-decoration:none;padding:8px;border-radius:7px;font-size:11.5px;font-weight:600;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zm-2.02-15.03c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"></path></svg>
+                App Store
+              </a>
+              <a href="/night-pdf" style="display:flex;align-items:center;justify-content:center;border:1.5px solid #e2e2e2;color:#606060;text-decoration:none;padding:7px;border-radius:7px;font-size:11.5px;font-weight:500;">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Girls Back -->
+        <div data-card="" data-color="#f59e0b" data-rgb="245,158,11" style="background:#fff;border:1.5px solid #e2e2e2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;">
+          <div style="background:#f59e0b;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff;">G</div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);">収入管理</span>
+          </div>
+          <div style="padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin:0;letter-spacing:-.2px;">Girls Back</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <span style="font-size:10px;font-weight:600;color:#f59e0b;background:rgba(245,158,11,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(245,158,11,.18);">バック収入管理</span>
+              <span style="font-size:10px;font-weight:600;color:#f59e0b;background:rgba(245,158,11,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(245,158,11,.18);">未収管理</span>
+              <span style="font-size:10px;font-weight:600;color:#f59e0b;background:rgba(245,158,11,.08);padding:3px 8px;border-radius:100px;border:1px solid rgba(245,158,11,.18);">6ヶ月グラフ</span>
+            </div>
+            <div style="margin-top:auto;">
+              <a href="/girls-back" style="display:flex;align-items:center;justify-content:center;background:#f59e0b;color:#fff;text-decoration:none;padding:8px;border-radius:7px;font-size:11.5px;font-weight:600;">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section header 02 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:end;margin-bottom:52px;padding-bottom:28px;border-bottom:1.5px solid var(--text);">
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-size:80px;font-weight:800;line-height:1;color:var(--line-mid);letter-spacing:-4px;margin-bottom:-8px;">02</div>
+          <h2 style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.8px;margin:0;color:var(--text);">その他のアプリ</h2>
+        </div>
+        <div style="padding-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#10b981;"></div>
+            <span style="font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#10b981;">General</span>
+          </div>
+          <p style="font-size:14px;color:var(--mid);margin:0;line-height:1.6;">ゲーム・ファミリー・生活を豊かにするアプリ。あらゆる日常シーンをサポート。</p>
+        </div>
+      </div>
+
+      <!-- General apps grid -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+
+        <!-- Night Dice -->
+        <div data-card="" data-color="#10b981" data-rgb="16,185,129" style="background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;cursor:default;">
+          <div style="background:#10b981;padding:24px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);">ゲーム</span>
+            <div style="width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;line-height:1;">🎲</div>
+          </div>
+          <div style="padding:24px;flex:1;display:flex;flex-direction:column;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin:0 0 10px;letter-spacing:-.3px;">Night Dice</h3>
+            <p style="font-size:13px;color:var(--mid);line-height:1.7;margin:0 0 16px;flex:1;">2〜8人で楽しむ伝統的なサイコロゲーム。パーティーに最適なアプリ。</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+              <span style="font-size:11px;font-weight:600;color:#10b981;background:rgba(16,185,129,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(16,185,129,.2);">2〜8人対戦</span>
+              <span style="font-size:11px;font-weight:600;color:#10b981;background:rgba(16,185,129,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(16,185,129,.2);">チンチロ</span>
+              <span style="font-size:11px;font-weight:600;color:#10b981;background:rgba(16,185,129,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(16,185,129,.2);">パーティー向け</span>
+            </div>
+            <a href="/night-dice" style="display:flex;align-items:center;justify-content:center;background:#10b981;color:#fff;text-decoration:none;padding:11px;border-radius:8px;font-size:13px;font-weight:600;margin-top:auto;">詳細を見る</a>
+          </div>
+        </div>
+
+        <!-- 子供クエスト -->
+        <div data-card="" data-color="#fb923c" data-rgb="251,146,60" style="background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;cursor:default;">
+          <div style="background:#fb923c;padding:24px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);">ファミリー</span>
+            <div style="width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;line-height:1;">⭐</div>
+          </div>
+          <div style="padding:24px;flex:1;display:flex;flex-direction:column;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin:0 0 10px;letter-spacing:-.3px;">子供クエスト</h3>
+            <p style="font-size:13px;color:var(--mid);line-height:1.7;margin:0 0 16px;flex:1;">こどものやる気を引き出すクエスト管理アプリ。お手伝いをゲーム感覚で楽しもう！</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+              <span style="font-size:11px;font-weight:600;color:#fb923c;background:rgba(251,146,60,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(251,146,60,.2);">クエスト制</span>
+              <span style="font-size:11px;font-weight:600;color:#fb923c;background:rgba(251,146,60,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(251,146,60,.2);">キャラ成長</span>
+              <span style="font-size:11px;font-weight:600;color:#fb923c;background:rgba(251,146,60,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(251,146,60,.2);">無料</span>
+            </div>
+            <a href="/kodomo-quest" style="display:flex;align-items:center;justify-content:center;background:#fb923c;color:#fff;text-decoration:none;padding:11px;border-radius:8px;font-size:13px;font-weight:600;margin-top:auto;">詳細を見る</a>
+          </div>
+        </div>
+
+        <!-- ゴミの日 -->
+        <div data-card="" data-color="#22c55e" data-rgb="34,197,94" style="background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s,border-color .22s;cursor:default;">
+          <div style="background:#22c55e;padding:24px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);">生活</span>
+            <div style="width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;line-height:1;">🗑</div>
+          </div>
+          <div style="padding:24px;flex:1;display:flex;flex-direction:column;">
+            <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin:0 0 10px;letter-spacing:-.3px;">ゴミの日！</h3>
+            <p style="font-size:13px;color:var(--mid);line-height:1.7;margin:0 0 16px;flex:1;">地域を選ぶだけでゴミ収集日を管理。通知とウィジェットでゴミ出し忘れを防止。</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+              <span style="font-size:11px;font-weight:600;color:#22c55e;background:rgba(34,197,94,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(34,197,94,.2);">地域設定</span>
+              <span style="font-size:11px;font-weight:600;color:#22c55e;background:rgba(34,197,94,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(34,197,94,.2);">当日通知</span>
+              <span style="font-size:11px;font-weight:600;color:#22c55e;background:rgba(34,197,94,.08);padding:4px 10px;border-radius:100px;border:1px solid rgba(34,197,94,.2);">ウィジェット</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto;">
+              <a href="https://apps.apple.com/jp/app/id6782357102" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:5px;background:#22c55e;color:#fff;text-decoration:none;padding:11px;border-radius:8px;font-size:13px;font-weight:600;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zm-2.02-15.03c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"></path></svg>
+                App Store
+              </a>
+              <a href="/gomi-no-hi" style="display:flex;align-items:center;justify-content:center;border:1.5px solid var(--line);color:var(--mid);text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:500;">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="padding:0 80px 100px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="background:#0c0c0c;border-radius:24px;padding:64px 72px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;">
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">Get in touch</div>
+          <h2 style="font-family:'Syne',sans-serif;font-size:clamp(36px,4vw,56px);font-weight:800;letter-spacing:-2px;color:#fff;margin:0 0 16px;line-height:1.05;">ご要望・お問い合わせは<br>お気軽にどうぞ。</h2>
+          <p style="font-size:16px;color:rgba(255,255,255,.45);margin:0;line-height:1.7;">アプリへのご意見や機能リクエスト、<br>ビジネスのご相談もお待ちしています。</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;min-width:200px;">
+          <a href="/contact" style="display:flex;align-items:center;justify-content:center;background:#8b5cf6;color:#fff;text-decoration:none;padding:16px 32px;border-radius:10px;font-size:15px;font-weight:700;white-space:nowrap;transition:opacity .2s;">お問い合わせ</a>
+          <a href="/news" style="display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);text-decoration:none;padding:15px 32px;border-radius:10px;font-size:15px;font-weight:500;white-space:nowrap;transition:border-color .2s,color .2s;">お知らせを見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:28px 80px;border-top:1px solid var(--line);">
+    <div style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5px;width:14px;height:14px;">
+          <div style="background:#8b5cf6;border-radius:1.5px;"></div>
+          <div style="background:#ec4899;border-radius:1.5px;"></div>
+          <div style="background:#3b82f6;border-radius:1.5px;"></div>
+          <div style="background:#f97316;border-radius:1.5px;"></div>
+        </div>
+        <span style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;">App Collection</span>
+        <span style="font-size:11.5px;color:var(--light);">© 2025 UTSUNO HIDETA.</span>
+      </div>
+      <div style="display:flex;gap:28px;">
+        <a href="/news" style="font-size:12.5px;color:var(--light);text-decoration:none;transition:color .2s;" data-footer-link="">お知らせ</a>
+        <a href="/contact" style="font-size:12.5px;color:var(--light);text-decoration:none;transition:color .2s;" data-footer-link="">お問い合わせ</a>
+        <a href="/admob" style="font-size:12.5px;color:var(--light);text-decoration:none;transition:color .2s;" data-footer-link="">AdMob</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: false };
+
+  renderVals() {
+    const r = this.state.ready;
+    return {
+      heroReveal: {
+        opacity: r ? 1 : 0,
+        transform: r ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity .55s, transform .55s',
+      }
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => this.setState({ ready: true }), 60);
+
+    const nav = document.getElementById('nav');
+
+    // Nav scroll border
+    const onScroll = () => {
+      if (!nav) return;
+      nav.style.borderBottomColor = window.scrollY > 40
+        ? 'var(--line)'
+        : 'transparent';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Card hover
+    document.querySelectorAll('[data-card]').forEach(card => {
+      const rgb = card.dataset.rgb;
+      const color = card.dataset.color;
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-6px)';
+        card.style.boxShadow = `0 20px 48px rgba(${rgb},0.16)`;
+        card.style.borderColor = color;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = 'none';
+        card.style.borderColor = 'var(--line)';
+      });
+    });
+
+    // Nav link hover
+    document.querySelectorAll('[data-nav-link]').forEach(a => {
+      a.addEventListener('mouseenter', () => { a.style.color = 'var(--text)'; });
+      a.addEventListener('mouseleave', () => { a.style.color = 'var(--mid)'; });
+    });
+
+    // Footer link hover
+    document.querySelectorAll('[data-footer-link]').forEach(a => {
+      a.addEventListener('mouseenter', () => { a.style.color = 'var(--text)'; });
+      a.addEventListener('mouseleave', () => { a.style.color = 'var(--light)'; });
+    });
+
+    // Smooth scroll for # links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const el = document.getElementById(a.getAttribute('href').slice(1));
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+}
+</script>
+</body>
+</html>
