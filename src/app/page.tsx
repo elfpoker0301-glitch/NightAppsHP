@@ -2,496 +2,427 @@ import Link from "next/link";
 import Navigation from "./components/Navigation";
 import JsonLd from "./components/JsonLd";
 
+/* ── App data ─────────────────────────────────────────────── */
+const nightApps = [
+  {
+    href: "/night-meibo",
+    name: "Night名簿帳",
+    tagline: "顧客名簿管理",
+    desc: "ナイト業界向けの顧客管理アプリ。来店履歴・誕生日・メモをスマートに一元管理。",
+    tags: ["顧客管理", "名簿", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    ),
+  },
+  {
+    href: "/night-keiyaku",
+    name: "Night契約書",
+    tagline: "契約書作成",
+    desc: "ナイト業界の契約書をその場でデジタル作成。テンプレートで素早く・正確に。",
+    tags: ["契約書", "書類", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14,2 14,8 20,8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+        <polyline points="10,9 9,9 8,9"/>
+      </svg>
+    ),
+  },
+  {
+    href: "/night-afterback",
+    name: "Nightアフターバック",
+    tagline: "手数料・バック管理",
+    desc: "スタッフごとのアフターバック・手数料を自動計算。月次レポートもワンタップ。",
+    tags: ["バック管理", "計算", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <line x1="12" y1="1" x2="12" y2="23"/>
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      </svg>
+    ),
+  },
+  {
+    href: "/night-pdf",
+    name: "Night PDF",
+    tagline: "PDF管理・共有",
+    desc: "PDF・画像をまとめて管理。お店のメニューや資料をすぐ共有できる。",
+    tags: ["PDF", "ファイル管理"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="15,3 21,3 21,9"/>
+        <polyline points="9,21 3,21 3,15"/>
+        <line x1="21" y1="3" x2="14" y2="10"/>
+        <line x1="3" y1="21" x2="10" y2="14"/>
+      </svg>
+    ),
+  },
+  {
+    href: "/night-dice",
+    name: "Night Dice",
+    tagline: "ゲーム・エンタメ",
+    desc: "お店で盛り上がるサイコロゲーム。カスタマイズ可能なルールで場を盛り上げよう。",
+    tags: ["ゲーム", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="3" ry="3"/>
+        <circle cx="8.5" cy="8.5" r="1.5" fill="white" stroke="none"/>
+        <circle cx="15.5" cy="8.5" r="1.5" fill="white" stroke="none"/>
+        <circle cx="8.5" cy="15.5" r="1.5" fill="white" stroke="none"/>
+        <circle cx="15.5" cy="15.5" r="1.5" fill="white" stroke="none"/>
+      </svg>
+    ),
+  },
+];
+
+const girlsApps = [
+  {
+    href: "/girls-board",
+    name: "Girls Board",
+    tagline: "顧客管理・売上管理",
+    desc: "キャバクラ・ガールズバーで働く女性のためのアプリ。来店アラート・月別売上ダッシュボード・日報シェアを一つに。",
+    tags: ["顧客管理", "売上管理", "日報", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7"/>
+        <rect x="14" y="3" width="7" height="7"/>
+        <rect x="14" y="14" width="7" height="7"/>
+        <rect x="3" y="14" width="7" height="7"/>
+      </svg>
+    ),
+  },
+  {
+    href: "/girls-back",
+    name: "Girls Back",
+    tagline: "バック・給与管理",
+    desc: "キャスト向けのバック・給与管理アプリ。日別・月別の収支を簡単に記録・確認。",
+    tags: ["バック管理", "給与", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M20 12V22H4V12"/>
+        <path d="M22 7H2v5h20V7z"/>
+        <path d="M12 22V7"/>
+        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+      </svg>
+    ),
+  },
+];
+
+const lifeApps = [
+  {
+    href: "/kodomo-quest",
+    name: "子供クエスト",
+    tagline: "育児・こども向けゲーム",
+    desc: "お子さんが楽しみながら学べるクエスト型アプリ。毎日のお手伝いをゲームに変えよう。",
+    tags: ["育児", "キッズ", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+      </svg>
+    ),
+  },
+  {
+    href: "/gomi-no-hi",
+    name: "ゴミの日！",
+    tagline: "ゴミ収集日リマインダー",
+    desc: "ゴミ出しの日をプッシュ通知でお知らせ。地域ごとの収集スケジュールを登録して忘れずに。",
+    tags: ["生活", "通知", "無料"],
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="3,6 5,6 21,6"/>
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+      </svg>
+    ),
+  },
+];
+
+/* ── Sub-components ───────────────────────────────────────── */
+function SeriesLabel({ color, children }: { color: string; children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2.5 mb-8">
+      <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: color }} />
+      <span className="text-xs font-semibold tracking-widest uppercase" style={{ color }}>
+        {children}
+      </span>
+      <span className="flex-1 h-px" style={{ background: `${color}22` }} />
+    </div>
+  );
+}
+
+interface AppDef {
+  href: string;
+  name: string;
+  tagline: string;
+  desc: string;
+  tags: string[];
+  icon: React.ReactNode;
+}
+
+function AppCard({
+  app,
+  accentColor,
+  glowColor,
+  borderColor,
+  gradient,
+}: {
+  app: AppDef;
+  accentColor: string;
+  glowColor: string;
+  borderColor: string;
+  gradient: string;
+}) {
+  return (
+    <Link
+      href={app.href}
+      className="group block glass-card cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+      style={{
+        padding: "1.5rem",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Hover glow */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{ background: `radial-gradient(circle at 30% 30%, ${glowColor}, transparent 70%)` }}
+      />
+
+      <div className="relative z-10">
+        {/* Icon + name */}
+        <div className="flex items-start justify-between mb-4">
+          <div
+            className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+            style={{ background: gradient }}
+          >
+            {app.icon}
+          </div>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+            className="mt-1 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            style={{ color: accentColor }}
+          >
+            <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+
+        <p className="text-[11px] font-medium mb-1" style={{ color: accentColor, letterSpacing: "0.06em" }}>
+          {app.tagline}
+        </p>
+        <h3 className="text-base font-semibold mb-2.5" style={{ color: "var(--text-primary)" }}>
+          {app.name}
+        </h3>
+        <p className="text-[13px] leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
+          {app.desc}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5">
+          {app.tags.map(tag => (
+            <span
+              key={tag}
+              className="tag"
+              style={{ color: accentColor, borderColor: borderColor }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom accent line */}
+      <span
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
+      />
+    </Link>
+  );
+}
+
+/* ── Page ─────────────────────────────────────────────────── */
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+    <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <JsonLd />
       <Navigation />
-      
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+
+      {/* Ambient background blobs */}
+      <div aria-hidden="true" className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+        <div
+          className="blob absolute rounded-full"
+          style={{
+            width: 500, height: 500,
+            top: "-10%", right: "-5%",
+            background: "radial-gradient(circle, rgba(124,111,224,0.12) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+        />
+        <div
+          className="blob blob-delay-1 absolute rounded-full"
+          style={{
+            width: 400, height: 400,
+            bottom: "20%", left: "-8%",
+            background: "radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+        />
+        <div
+          className="blob blob-delay-2 absolute rounded-full"
+          style={{
+            width: 350, height: 350,
+            top: "50%", left: "40%",
+            background: "radial-gradient(circle, rgba(52,211,153,0.07) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+        />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-        <div className="text-center">
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
-            NightApp
-          </h1>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
-            Experience the Future
+      {/* ── Hero ─────────────────────────────────────────── */}
+      <section className="relative pt-40 pb-24 px-5 sm:px-8 max-w-7xl mx-auto text-center" style={{ zIndex: 1 }}>
+        <p
+          className="inline-block text-xs font-semibold tracking-widest uppercase mb-6 px-3 py-1 rounded-full"
+          style={{ color: "var(--night-accent)", background: "var(--night-glow)", border: "1px solid var(--night-border)" }}
+        >
+          Apps Collection
+        </p>
+
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-none">
+          <span className="gradient-text">NightApp</span>
+        </h1>
+
+        <p className="text-lg sm:text-xl max-w-2xl mx-auto" style={{ color: "var(--text-secondary)", lineHeight: 1.7 }}>
+          ナイトワーク・日常生活を<span style={{ color: "var(--text-primary)" }}>スマートに</span>するiOSアプリコレクション。<br className="hidden sm:block"/>
+          9つのアプリがひとつのブランドに。
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
+          <div className="text-center">
+            <p className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>9</p>
+            <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>Apps</p>
+          </div>
+          <div className="w-px h-8" style={{ background: "var(--border)" }} />
+          <div className="text-center">
+            <p className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>3</p>
+            <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>Series</p>
+          </div>
+          <div className="w-px h-8" style={{ background: "var(--border)" }} />
+          <div className="text-center">
+            <p className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>iOS</p>
+            <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>Platform</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Apps grid ────────────────────────────────────── */}
+      <main className="relative px-5 sm:px-8 max-w-7xl mx-auto pb-32" style={{ zIndex: 1 }}>
+
+        {/* Night Series */}
+        <section aria-labelledby="night-series">
+          <SeriesLabel color="var(--night-accent)">Night Series — ナイト業界</SeriesLabel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
+            {nightApps.map(app => (
+              <AppCard
+                key={app.href}
+                app={app}
+                accentColor="var(--night-accent)"
+                glowColor="var(--night-glow)"
+                borderColor="var(--night-border)"
+                gradient="var(--night-gradient)"
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Girls Series */}
+        <section aria-labelledby="girls-series">
+          <SeriesLabel color="var(--girls-accent)">Girls Series — キャスト向け</SeriesLabel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20">
+            {girlsApps.map(app => (
+              <AppCard
+                key={app.href}
+                app={app}
+                accentColor="var(--girls-accent)"
+                glowColor="var(--girls-glow)"
+                borderColor="var(--girls-border)"
+                gradient="var(--girls-gradient)"
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Life Series */}
+        <section aria-labelledby="life-series">
+          <SeriesLabel color="var(--life-accent)">Life Series — 日常生活</SeriesLabel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
+            {lifeApps.map(app => (
+              <AppCard
+                key={app.href}
+                app={app}
+                accentColor="var(--life-accent)"
+                glowColor="var(--life-glow)"
+                borderColor="var(--life-border)"
+                gradient="var(--life-gradient)"
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Contact CTA */}
+        <section
+          className="glass-card text-center px-8 py-14"
+          aria-label="お問い合わせ"
+        >
+          <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--night-accent)" }}>
+            Contact
           </p>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            ナイトワークの管理を革新する、プロフェッショナルなアプリケーションスイート
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
+            ご質問・ご要望はお気軽に
+          </h2>
+          <p className="text-sm mb-8 max-w-sm mx-auto" style={{ color: "var(--text-secondary)" }}>
+            バグ報告・機能リクエスト・その他のお問い合わせをお待ちしています。
           </p>
-        </div>
-      </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+            style={{ background: "var(--night-gradient)", color: "white", boxShadow: "0 0 24px var(--night-glow)" }}
+          >
+            お問い合わせ
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Link>
+        </section>
+      </main>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Night名簿帳</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">📱</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                顧客管理を効率化する革新的な名簿管理アプリ。シンプルで使いやすいインターフェースで、大切なお客様情報をスマートに管理。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-purple-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  簡単な顧客情報管理
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-purple-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  安全なデータ保護
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-purple-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  直感的な操作性
-                </div>
-              </div>
-              <div className="space-y-3">
-                <a
-                  href="https://apps.apple.com/jp/app/night%E5%90%8D%E7%B0%BF%E5%B8%B3/id6749575718"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-6 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-purple-500/50"
-                >
-                  <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                  </svg>
-                  App Storeでダウンロード
-                </a>
-                <Link
-                  href="/night-meibo"
-                  className="block text-center w-full bg-gray-800/50 backdrop-blur-sm text-white py-3 px-6 rounded-xl hover:bg-gray-800 transition-all duration-300 border border-purple-500/30 hover:border-purple-500 font-semibold"
-                >
-                  詳細を見る
-                </Link>
-              </div>
-            </div>
+      {/* Footer */}
+      <footer style={{ borderTop: "1px solid var(--border)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5">
+            <span className="w-6 h-6 rounded-md flex items-center justify-center" style={{ background: "var(--night-gradient)" }}>
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M7 1L9.2 5.4L14 6.1L10.5 9.5L11.4 14L7 11.6L2.6 14L3.5 9.5L0 6.1L4.8 5.4L7 1Z" fill="white"/>
+              </svg>
+            </span>
+            <span className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>NightApp</span>
           </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-blue-500/30 hover:border-blue-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Night契約書</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">📄</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                デジタル契約書管理システム。紙の契約書から解放され、セキュアで効率的な契約管理を実現。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  電子契約書作成
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  クラウド保存
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  法的効力の確保
-                </div>
-              </div>
-              <Link
-                href="/night-keiyaku"
-                className="block text-center w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-blue-500/50"
-              >
-                詳細を見る
-              </Link>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/30 hover:border-pink-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-pink-500 to-rose-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Nightアフターバック</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">💎</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                アフターサービス管理の決定版。お客様との関係性を深め、リピート率を向上させる究極のツール。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-pink-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  アフター予約管理
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-pink-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  顧客分析機能
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-pink-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  リマインダー通知
-                </div>
-              </div>
-              <div className="space-y-3">
-                <a
-                  href="https://apps.apple.com/jp/app/night%E3%82%A2%E3%83%95%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF/id6751783629"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-gradient-to-r from-pink-600 to-rose-600 text-white py-3 px-6 rounded-xl hover:from-pink-700 hover:to-rose-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-pink-500/50"
-                >
-                  <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                  </svg>
-                  App Store (iOS版)
-                </a>
-                <Link
-                  href="/night-afterback"
-                  className="block text-center w-full bg-gray-800/50 backdrop-blur-sm text-white py-3 px-6 rounded-xl hover:bg-gray-800 transition-all duration-300 border border-pink-500/30 hover:border-pink-500 font-semibold"
-                >
-                  詳細を見る
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Night PDF</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">📄</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                業界初のバケツ塗り機能搭載。PDFの特定エリアを簡単に塗りつぶし、革新的な編集体験を提供。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-orange-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  バケツ塗り機能
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-orange-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  充実の編集ツール
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-orange-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  リアルタイム描画
-                </div>
-              </div>
-              <div className="space-y-3">
-                <a
-                  href="https://apps.apple.com/us/app/nightpdf-ios/id6755779324"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-3 px-6 rounded-xl hover:from-orange-700 hover:to-red-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-orange-500/50"
-                >
-                  <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                  </svg>
-                  App Store (iOS版)
-                </a>
-                <Link
-                  href="/night-pdf"
-                  className="block text-center w-full bg-gray-800/50 backdrop-blur-sm text-white py-3 px-6 rounded-xl hover:bg-gray-800 transition-all duration-300 border border-orange-500/30 hover:border-orange-500 font-semibold"
-                >
-                  詳細を見る
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-emerald-500/30 hover:border-emerald-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Night Dice</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">🎲</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                2〜8人で楽しむ伝統的なサイコロゲーム。友達や家族との集まりに最適なパーティーアプリ。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-emerald-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  2〜8人対戦
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-emerald-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  チンチロゲーム
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-emerald-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  パーティー向け
-                </div>
-              </div>
-              <Link
-                href="/night-dice"
-                className="block text-center w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 px-6 rounded-xl hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-emerald-500/50"
-              >
-                詳細を見る
-              </Link>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-yellow-500/30 hover:border-yellow-400/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Girls Board</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">💎</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                キャバクラ・ガールズバーで働く女性のための顧客管理＆売上管理アプリ。指名客の来店アラート・売上集計・日報シェアをラグジュアリーなデザインで。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  顧客管理・来店アラート
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  月別売上ダッシュボード
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  日報・月次レポートシェア
-                </div>
-              </div>
-              <Link
-                href="/girls-board"
-                className="block text-center w-full bg-gradient-to-r from-yellow-600 to-yellow-800 text-white py-3 px-6 rounded-xl hover:from-yellow-700 hover:to-yellow-900 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-yellow-500/50"
-              >
-                詳細を見る
-              </Link>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-700 to-amber-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-yellow-600/30 hover:border-yellow-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600 to-amber-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Girls Back</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-600 to-amber-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">💎</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                キャバクラ・クラブで働く女性のためのアフターバック収入管理アプリ。未収管理・店舗管理・グラフ表示をラグジュアリーなデザインで。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  バック収入・未収管理
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  パスコードで安全保護
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  6ヶ月グラフ・店舗管理
-                </div>
-              </div>
-              <Link
-                href="/girls-back"
-                className="block text-center w-full bg-gradient-to-r from-yellow-600 to-amber-600 text-white py-3 px-6 rounded-xl hover:from-yellow-700 hover:to-amber-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-yellow-500/50"
-              >
-                詳細を見る
-              </Link>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">子供クエスト</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">⭐</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                こどものやる気を引き出すクエスト管理アプリ。お手伝いや宿題をゲーム感覚で楽しもう！
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-orange-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  クエスト＆ポイント制
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-orange-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  キャラクターが成長
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-orange-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  家族向け・無料
-                </div>
-              </div>
-              <Link
-                href="/kodomo-quest"
-                className="block text-center w-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-3 px-6 rounded-xl hover:from-orange-600 hover:to-yellow-600 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-orange-500/50"
-              >
-                詳細を見る
-              </Link>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 border border-green-500/30 hover:border-green-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-500 to-teal-500 rounded-bl-3xl rounded-tr-3xl opacity-20"></div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">ゴミの日！</h2>
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">🗑️</span>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                地域を選ぶだけでゴミ収集日を管理できるシンプルなアプリ。通知とウィジェットでゴミ出し忘れを防止。
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  かんたん地域設定
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  前日・当日通知
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  ホーム画面ウィジェット
-                </div>
-              </div>
-              <div className="space-y-3">
-                <a
-                  href="https://apps.apple.com/jp/app/id6782357102"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-3 px-6 rounded-xl hover:from-green-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hover:shadow-green-500/50"
-                >
-                  <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                  </svg>
-                  App Storeでダウンロード
-                </a>
-                <Link
-                  href="/gomi-no-hi"
-                  className="block text-center w-full bg-gray-800/50 backdrop-blur-sm text-white py-3 px-6 rounded-xl hover:bg-gray-800 transition-all duration-300 border border-green-500/30 hover:border-green-500 font-semibold"
-                >
-                  詳細を見る
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="bg-gray-900/50 backdrop-blur-xl rounded-3xl p-12 border border-purple-500/30">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="group">
-              <div className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                8+
-              </div>
-              <div className="text-gray-400 text-lg">アプリケーション</div>
-            </div>
-            <div className="group">
-              <div className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                100%
-              </div>
-              <div className="text-gray-400 text-lg">セキュア</div>
-            </div>
-            <div className="group">
-              <div className="text-5xl font-bold bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                24/7
-              </div>
-              <div className="text-gray-400 text-lg">サポート</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <footer className="relative bg-gray-950/80 backdrop-blur-xl border-t border-gray-800 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-400">
-            <p>&copy; 2025 UTSUNO HIDETA. All rights reserved.</p>
-          </div>
+          <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+            © 2025 UTSUNO HIDETA. All rights reserved.
+          </p>
+          <Link href="/contact" className="text-xs hover:text-white transition-colors duration-150" style={{ color: "var(--text-muted)" }}>
+            お問い合わせ
+          </Link>
         </div>
       </footer>
     </div>
