@@ -1,100 +1,52 @@
 import Layout from "../../components/Layout";
+import Link from "next/link";
+
+const APP_COLOR = "#fb923c";
 
 export const metadata = {
-  title: "サポート - 子供クエスト | NightApp",
-  description: "子供クエストのよくある質問、トラブルシューティング、お問い合わせ方法について。",
+  title: "サポート - 子供クエスト",
 };
 
 export default function KodomoQuestSupportPage() {
   return (
-    <Layout>
-      <div className="text-center py-16">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-          子供クエスト サポート
-        </h1>
-        <p className="text-xl text-gray-300">
-          よくある質問とお問い合わせ
-        </p>
-      </div>
+    <Layout title="子供クエスト - サポート" description="子供クエストのサポートページ">
+      <div style={{ maxWidth: 800, margin: "0 auto" }}>
 
-      <div className="max-w-4xl mx-auto space-y-8">
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-orange-500/30">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <span className="text-3xl mr-3">❓</span>
-            よくある質問
-          </h2>
-          <div className="space-y-6">
-            <div className="border-b border-white/10 pb-6">
-              <h3 className="text-lg font-semibold text-orange-400 mb-2">
-                Q. クエストの承認はどうすればいいですか？
-              </h3>
-              <p className="text-gray-300">
-                A. 歯車ボタンから親の管理画面（暗証番号が必要）にアクセスし、「かくにんしてね」セクションから承認できます。
-              </p>
-            </div>
+        <div style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 16, padding: "32px", marginBottom: 20 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 17, fontWeight: 800, letterSpacing: -0.3, color: "var(--text)", marginBottom: 12, marginTop: 0 }}>よくある質問</h2>
 
-            <div className="border-b border-white/10 pb-6">
-              <h3 className="text-lg font-semibold text-orange-400 mb-2">
-                Q. 暗証番号を忘れてしまいました
-              </h3>
-              <p className="text-gray-300">
-                A. 現在のバージョンでは暗証番号のリセット機能がありません。アプリを削除して再インストールすることでリセットできます（データは消えます）。
-              </p>
-            </div>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q. クエストの承認はどうするのですか？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>子供がクエスト完了を報告したら、保護者が暗証番号で管理画面に入り「承認」ボタンを押すとポイントが付与されます。</p>
 
-            <div className="border-b border-white/10 pb-6">
-              <h3 className="text-lg font-semibold text-orange-400 mb-2">
-                Q. 子供を複数人登録できますか？
-              </h3>
-              <p className="text-gray-300">
-                A. はい、管理画面の「こどもをふやす」から複数の子供を登録できます。それぞれ個別のクエストとポイントを管理できます。
-              </p>
-            </div>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q. 暗証番号を忘れてしまいました</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>申し訳ありませんが、暗証番号はデバイス内にのみ保存されており復元できません。アプリを再インストールすることでリセットされますが、データも削除されます。</p>
 
-            <div className="border-b border-white/10 pb-6">
-              <h3 className="text-lg font-semibold text-orange-400 mb-2">
-                Q. ポイントを手動で調整できますか？
-              </h3>
-              <p className="text-gray-300">
-                A. はい、管理画面の「ポイント」セクションからステッパーを使ってポイントを手動で増減できます。
-              </p>
-            </div>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q. 複数の子供を登録できますか？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>はい、管理画面から子供を追加することで複数人の管理が可能です。それぞれ独立したクエストとポイントが管理されます。</p>
 
-            <div className="border-b border-white/10 pb-6">
-              <h3 className="text-lg font-semibold text-orange-400 mb-2">
-                Q. キャラクターはどうやって成長しますか？
-              </h3>
-              <p className="text-gray-300">
-                A. ポイントが貯まるにつれてキャラクターが成長します。たまご→ひな→こども→おとな→スーパーの5段階で成長していきます。
-              </p>
-            </div>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q. ポイントを手動で調整できますか？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>管理画面から保護者がポイントを手動で加算・減算することができます。</p>
 
-            <div className="pb-6">
-              <h3 className="text-lg font-semibold text-orange-400 mb-2">
-                Q. データはどこに保存されますか？
-              </h3>
-              <p className="text-gray-300">
-                A. すべてのデータはお使いのデバイスにのみ保存されます。クラウドへのアップロードは行いません。
-              </p>
-            </div>
-          </div>
-        </section>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q. キャラクターはどのように成長しますか？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>ポイントを貯めることでキャラクターが「たまご → ひな → こども → おとな → スーパー」と段階的に成長します。</p>
 
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-orange-500/30">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <span className="text-3xl mr-3">✉️</span>
-            お問い合わせ
-          </h2>
-          <p className="text-gray-300 mb-4">
-            上記で解決しない場合は、以下のメールアドレスまでお問い合わせください。
-          </p>
-          <a
-            href="mailto:utsuno.liv@gmail.com"
-            className="inline-flex items-center text-orange-400 hover:text-orange-300 transition-colors text-lg font-semibold"
-          >
-            📧 utsuno.liv@gmail.com
-          </a>
-        </section>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q. データはどこに保存されますか？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: 0 }}>すべてのデータはお使いのデバイス内にのみ保存されます。外部サーバーへの送信は行いません。</p>
+        </div>
+
+        <div style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 16, padding: "32px", marginBottom: 20 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 17, fontWeight: 800, letterSpacing: -0.3, color: "var(--text)", marginBottom: 12, marginTop: 0 }}>お問い合わせ</h2>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 8px 0" }}>上記で解決しない場合は、メールにてご連絡ください。</p>
+          <ul style={{ paddingLeft: 20, margin: "8px 0", color: "var(--mid)", fontSize: 14, lineHeight: 2 }}>
+            <li><strong>Email：</strong><a href="mailto:app@liv-jpn.com" style={{ color: APP_COLOR }}>app@liv-jpn.com</a></li>
+          </ul>
+        </div>
+
+        <div style={{ marginTop: 40, paddingTop: 24, borderTop: "1px solid var(--line)" }}>
+          <Link href="/kodomo-quest" style={{ fontSize: 14, fontWeight: 600, color: APP_COLOR, textDecoration: "none" }}>
+            ← 子供クエストに戻る
+          </Link>
+        </div>
       </div>
     </Layout>
   );

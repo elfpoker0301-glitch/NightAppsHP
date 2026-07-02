@@ -1,84 +1,65 @@
 import Layout from "../../components/Layout";
+import Link from "next/link";
+
+const APP_COLOR = "#8b5cf6";
 
 export default function NightMeiboSupport() {
   return (
-    <Layout 
-      title="Night名簿帳 - サポート" 
+    <Layout
+      title="Night名簿帳 - サポート"
       description="Night名簿帳に関するサポート情報"
     >
-      <div className="max-w-4xl mx-auto">
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">■ よくある質問</h2>
-          
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">【プレミアムプランについて】</h3>
-              
-              <div className="space-y-4">
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">Q: プレミアムプランの料金は？</h4>
-                  <p className="text-gray-300">A: 月額300円です。7日間の無料トライアルもご利用いただけます。</p>
-                </div>
+      <div style={{ maxWidth: 800, margin: "0 auto" }}>
 
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">Q: プレミアムプランの特典は？</h4>
-                  <p className="text-gray-300">A: ・広告の完全非表示</p>
-                  <p className="text-gray-300 pl-6">・データのバックアップ・復元機能</p>
-                </div>
+        <div style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 16, padding: "32px", marginBottom: 20 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 17, fontWeight: 800, letterSpacing: -0.3, color: "var(--text)", marginBottom: 12, marginTop: 0 }}>■ よくある質問</h2>
 
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">Q: 解約方法は？</h4>
-                  <p className="text-gray-300">A: iPhone/iPadの設定アプリ &gt; App Store &gt; サブスクリプション から管理できます。</p>
-                </div>
-              </div>
-            </div>
+          <h3 style={{ fontSize: 14, fontWeight: 700, color: APP_COLOR, marginBottom: 8, marginTop: 20 }}>【プレミアムプランについて】</h3>
 
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4 mt-8">【データについて】</h3>
-              
-              <div className="space-y-4">
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">Q: データは安全ですか？</h4>
-                  <p className="text-gray-300">A: すべてのデータはお客様のデバイス内にのみ保存され、外部に送信されることはありません。</p>
-                </div>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q: プレミアムプランの料金は？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>A: 月額300円です。7日間の無料トライアルもご利用いただけます。</p>
 
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">Q: データのバックアップは？</h4>
-                  <p className="text-gray-300">A: プレミアムプランにて、iCloudを利用したバックアップ機能をご利用いただけます。</p>
-                </div>
-              </div>
-            </div>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q: プレミアムプランの特典は？</p>
+          <ul style={{ paddingLeft: 20, margin: "0 0 12px 0", color: "var(--mid)", fontSize: 14, lineHeight: 2 }}>
+            <li>広告の完全非表示</li>
+            <li>データのバックアップ・復元機能</li>
+          </ul>
 
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4 mt-8">【操作について】</h3>
-              
-              <div className="space-y-4">
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">Q: スタッフの写真が保存できません</h4>
-                  <p className="text-gray-300">A: カメラ・フォトライブラリへのアクセス許可が必要です。設定アプリでアクセス許可をご確認ください。</p>
-                </div>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q: 解約方法は？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>A: iPhone/iPadの設定アプリ &gt; App Store &gt; サブスクリプション から管理できます。</p>
 
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">Q: PDFが出力できません</h4>
-                  <p className="text-gray-300">A: iOS標準の共有機能を使用しています。他のアプリとの競合がある場合は、端末の再起動をお試しください。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+          <h3 style={{ fontSize: 14, fontWeight: 700, color: APP_COLOR, marginBottom: 8, marginTop: 20 }}>【データについて】</h3>
 
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-white mb-6">📩 お問い合わせ</h2>
-          
-          <div className="space-y-4 text-gray-300">
-            <ul className="space-y-2">
-              <li><strong className="text-white">メール：</strong><a href="mailto:support@liv-jpn.com" className="text-purple-300 hover:text-purple-200 transition-colors">support@liv-jpn.com</a></li>
-              <li><strong className="text-white">アプリ内：</strong>「設定 ＞ お問い合わせ」から送信可能</li>
-              <li><strong className="text-white">対応時間：</strong>平日 9:00〜18:00</li>
-              <li><strong className="text-white">回答目安：</strong>24時間以内</li>
-            </ul>
-          </div>
-        </section>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q: データは安全ですか？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>A: すべてのデータはお客様のデバイス内にのみ保存され、外部に送信されることはありません。</p>
+
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q: データのバックアップは？</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>A: プレミアムプランにて、iCloudを利用したバックアップ機能をご利用いただけます。</p>
+
+          <h3 style={{ fontSize: 14, fontWeight: 700, color: APP_COLOR, marginBottom: 8, marginTop: 20 }}>【操作について】</h3>
+
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q: スタッフの写真が保存できません</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: "0 0 12px 0" }}>A: カメラ・フォトライブラリへのアクセス許可が必要です。設定アプリでアクセス許可をご確認ください。</p>
+
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 4, fontWeight: 600 }}>Q: PDFが出力できません</p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, margin: 0 }}>A: iOS標準の共有機能を使用しています。他のアプリとの競合がある場合は、端末の再起動をお試しください。</p>
+        </div>
+
+        <div style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 16, padding: "32px", marginBottom: 20 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 17, fontWeight: 800, letterSpacing: -0.3, color: "var(--text)", marginBottom: 12, marginTop: 0 }}>📩 お問い合わせ</h2>
+          <ul style={{ paddingLeft: 20, margin: "8px 0", color: "var(--mid)", fontSize: 14, lineHeight: 2 }}>
+            <li><strong>メール：</strong><a href="mailto:app@liv-jpn.com" style={{ color: APP_COLOR }}>app@liv-jpn.com</a></li>
+            <li><strong>アプリ内：</strong>「設定 ＞ お問い合わせ」から送信可能</li>
+            <li><strong>対応時間：</strong>平日 9:00〜18:00</li>
+            <li><strong>回答目安：</strong>24時間以内</li>
+          </ul>
+        </div>
+
+        <div style={{ marginTop: 40, paddingTop: 24, borderTop: "1px solid var(--line)" }}>
+          <Link href="/night-meibo" style={{ fontSize: 14, fontWeight: 600, color: APP_COLOR, textDecoration: "none" }}>
+            ← Night名簿帳に戻る
+          </Link>
+        </div>
       </div>
     </Layout>
   );
