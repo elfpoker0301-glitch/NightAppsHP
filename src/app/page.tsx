@@ -99,11 +99,12 @@ const nightCards: NightCard[] = [
   },
   {
     href: "/aohime-rotation",
-    name: "泡姫ローテーション",
-    initial: "泡",
-    category: "店内管理",
-    color: "#f43f5e", rgb: "244,63,94",
-    chips: ["つけ回し管理", "ガントチャート", "日報出力"],
+    name: "Night シフト管理",
+    initial: "夜",
+    category: "シフト管理",
+    color: "#e8547a", rgb: "232,84,122",
+    chips: ["シフト管理", "ガントチャート", "補償払い対応"],
+    appStoreHref: "https://apps.apple.com/jp/app/id6787041071",
   },
 ];
 
@@ -147,7 +148,7 @@ const mosaicTiles = [
   { char: "G",   label: "Girls\nBack",  color: "#f59e0b", rgb: "245,158,11", delay: "2.5s" },
   { emoji: "⭐", label: "子供\nクエスト", color: "#fb923c", rgb: "251,146,60", delay: "0.3s" },
   { emoji: "🗑", label: "ゴミ\nの日！",  color: "#22c55e", rgb: "34,197,94",  delay: "0.8s" },
-  { char: "泡",  label: "泡姫\nローテ",  color: "#f43f5e", rgb: "244,63,94",  delay: "1.2s" },
+  { char: "夜",  label: "Night\nシフト管理",  color: "#e8547a", rgb: "232,84,122",  delay: "1.2s" },
 ];
 
 /* ── Sub-components ─────────────────────────────────────────── */
@@ -475,7 +476,7 @@ export default function Home() {
         <div style={{ display: "flex", animation: "marquee 28s linear infinite", width: "max-content" }}>
           {[0, 1].map(n => (
             <span key={n} style={{ whiteSpace: "nowrap", fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,.35)", letterSpacing: ".14em", textTransform: "uppercase", paddingRight: 4 }}>
-              Night名簿帳　/　Night契約書　/　Nightアフターバック　/　Night PDF　/　Girls Board　/　Girls Back　/　泡姫ローテーション　/　Night Dice　/　子供クエスト　/　ゴミの日！　/
+              Night名簿帳　/　Night契約書　/　Nightアフターバック　/　Night PDF　/　Girls Board　/　Girls Back　/　Night シフト管理　/　Night Dice　/　子供クエスト　/　ゴミの日！　/
             </span>
           ))}
         </div>

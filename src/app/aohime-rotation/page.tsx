@@ -1,13 +1,13 @@
 import Layout from "../components/Layout";
 import Link from "next/link";
 
-const APP_COLOR = "#f43f5e";
+const APP_COLOR = "#e8547a";
 
 export default function AohimeRotationPage() {
   return (
     <Layout
-      title="泡姫ローテーション"
-      description="風俗店のつけ回し（ローテーション）をガントチャートで可視化・管理するiOSアプリ。部屋管理・日報出力・終了アラート搭載。"
+      title="Night シフト管理"
+      description="ナイト系店舗のシフト・ローテーションをガントチャートで可視化・管理するiOSアプリ。出張モード・補償払い・日報出力・終了アラート搭載。"
     >
       <div style={{ maxWidth: 860 }}>
 
@@ -19,15 +19,15 @@ export default function AohimeRotationPage() {
             display: "flex", alignItems: "center", justifyContent: "center",
             fontFamily: "'Syne', sans-serif", fontSize: 32, fontWeight: 800, color: "#fff",
           }}>
-            泡
+            夜
           </div>
           <div>
             <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 12 }}>
-              風俗店のつけ回し（ローテーション）をガントチャートで一括管理。
-              部屋ごとのセット状況・終了アラート・日報出力をワンアプリで完結。
+              ナイト系店舗のシフト・ローテーションをガントチャートで一括管理。
+              出張モード・補償払い・日報出力をワンアプリで完結。
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {["つけ回し管理", "ガントチャート", "終了アラート", "日報PDF/Excel", "無料"].map(t => (
+              {["シフト管理", "ガントチャート", "終了アラート", "補償払い対応", "無料"].map(t => (
                 <span key={t} style={{
                   fontSize: 12, fontWeight: 600, padding: "4px 12px",
                   border: `1px solid ${APP_COLOR}40`,
@@ -58,6 +58,19 @@ export default function AohimeRotationPage() {
           ))}
         </div>
 
+        {/* アプリ概要 */}
+        <section style={{ marginBottom: 40 }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 16 }}>
+            アプリ概要
+          </h2>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8, marginBottom: 8 }}>
+            Night シフト管理は、ナイト系店舗のシフト・ローテーション業務をスマートフォン一台で完結させるiOSアプリです。
+          </p>
+          <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.8 }}>
+            ガントチャートによる直感的な操作で、セット状況・補償払い・出張案件・日報管理をまとめて効率化できます。
+          </p>
+        </section>
+
         {/* 機能セクション */}
         <section style={{ marginBottom: 40 }}>
           <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 20 }}>
@@ -65,12 +78,12 @@ export default function AohimeRotationPage() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
             {[
-              { title: "ガントチャート管理", desc: "縦軸に部屋・女の子、横軸に時間軸を配置したガントチャートでセット状況を一目で把握。タップで詳細入力ダイアログを表示。" },
-              { title: "セット・延長管理", desc: "店頭/予約・新規/指名・オプション・セット時間を記録。延長セットは別色で表示。セット時間・延長時間・オプションはすべて店舗でカスタマイズ可能。" },
-              { title: "終了アラート", desc: "セット終了X分前（設定で変更可能）に音＋ポップアップで通知。女の子の名前を表示し、複数セット同時進行にも対応。" },
-              { title: "部制対応タブ", desc: "昼の部・夜の部など複数の部構成に対応。営業時間を部ごとに設定し、タブで切り替え。部ごとに「締め」ボタンで確定・ロック。" },
-              { title: "日報出力", desc: "部ごとまたは全日分の日報をExcel・PDF形式で出力。LINE・メール経由で共有可能。過去1ヶ月分のシートを履歴として保存。" },
-              { title: "柔軟な設定", desc: "部屋数・女の子登録（ランク付き）・セット時間・延長時間・オプション・ランク種別・アラートのオン/オフなど、店舗に合わせて細かく設定可能。" },
+              { title: "ガントチャート管理", desc: "縦軸にキャスト・横軸に時間を配置したガントチャートでシフト状況を一目で把握。タップで詳細入力ダイアログを表示。" },
+              { title: "セット・延長管理", desc: "新規/指名・オプション・セット時間を記録。延長セットは別色で表示。セット時間・オプションはすべて店舗でカスタマイズ可能。" },
+              { title: "補償払い対応", desc: "キャストごとに補償額を設定し、補償払いモードに切り替えると日報の給与合計に自動反映。補償バッジで一目で確認できます。" },
+              { title: "出張モード", desc: "出張案件の訪問先・部屋番号をセッションに記録。店外案件も一元管理できます。" },
+              { title: "終了アラート", desc: "セット終了前に音＋ポップアップで通知。複数セット同時進行にも対応し、見落としを防止します。" },
+              { title: "日報・給与計算", desc: "部ごとの日報・月次レポートを出力。キャストの本指名報酬・補償額も含めた給与を自動計算します。" },
             ].map(f => (
               <div key={f.title} style={{ background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: 14, padding: "20px 22px" }}>
                 <h3 style={{ fontSize: 14, fontWeight: 700, color: APP_COLOR, marginBottom: 8 }}>{f.title}</h3>
@@ -97,6 +110,23 @@ export default function AohimeRotationPage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* App Store */}
+        <section style={{ textAlign: "center", padding: "32px 0" }}>
+          <a
+            href="https://apps.apple.com/jp/app/id6787041071"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 10,
+              background: APP_COLOR, color: "#fff",
+              padding: "14px 32px", borderRadius: 14,
+              fontWeight: 700, fontSize: 15, textDecoration: "none",
+            }}
+          >
+            App Store でダウンロード
+          </a>
         </section>
 
       </div>
