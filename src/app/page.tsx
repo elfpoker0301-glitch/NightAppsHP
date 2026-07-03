@@ -97,6 +97,14 @@ const nightCards: NightCard[] = [
     color: "#f59e0b", rgb: "245,158,11",
     chips: ["バック収入管理", "未収管理", "6ヶ月グラフ"],
   },
+  {
+    href: "/aohime-rotation",
+    name: "泡姫ローテーション",
+    initial: "泡",
+    category: "店内管理",
+    color: "#f43f5e", rgb: "244,63,94",
+    chips: ["つけ回し管理", "ガントチャート", "日報出力"],
+  },
 ];
 
 const generalCards: GeneralCard[] = [
@@ -139,6 +147,7 @@ const mosaicTiles = [
   { char: "G",   label: "Girls\nBack",  color: "#f59e0b", rgb: "245,158,11", delay: "2.5s" },
   { emoji: "⭐", label: "子供\nクエスト", color: "#fb923c", rgb: "251,146,60", delay: "0.3s" },
   { emoji: "🗑", label: "ゴミ\nの日！",  color: "#22c55e", rgb: "34,197,94",  delay: "0.8s" },
+  { char: "泡",  label: "泡姫\nローテ",  color: "#f43f5e", rgb: "244,63,94",  delay: "1.2s" },
 ];
 
 /* ── Sub-components ─────────────────────────────────────────── */
@@ -365,7 +374,7 @@ export default function Home() {
                 iOS App Collection
               </span>
               <div style={{ flex: 1, height: 1, background: "var(--line)", maxWidth: 60 }} />
-              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", color: "var(--light)" }}>9 APPS</span>
+              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", color: "var(--light)" }}>10 APPS</span>
             </div>
 
             {/* H1 */}
@@ -409,7 +418,7 @@ export default function Home() {
             <div style={{ display: "flex", gap: 40, marginTop: 64, paddingTop: 40, borderTop: "1px solid #e2e2e2", flexWrap: "wrap" }}>
               <div>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 32, fontWeight: 800, letterSpacing: "-1px", color: "#0c0c0c" }}>
-                  9<span style={{ color: "#8b5cf6", fontSize: 20 }}>+</span>
+                  10<span style={{ color: "#8b5cf6", fontSize: 20 }}>+</span>
                 </div>
                 <div style={{ fontSize: 12, color: "#a0a0a0", fontWeight: 500, marginTop: 2 }}>アプリ数</div>
               </div>
@@ -466,7 +475,7 @@ export default function Home() {
         <div style={{ display: "flex", animation: "marquee 28s linear infinite", width: "max-content" }}>
           {[0, 1].map(n => (
             <span key={n} style={{ whiteSpace: "nowrap", fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,.35)", letterSpacing: ".14em", textTransform: "uppercase", paddingRight: 4 }}>
-              Night名簿帳　/　Night契約書　/　Nightアフターバック　/　Night PDF　/　Girls Board　/　Girls Back　/　Night Dice　/　子供クエスト　/　ゴミの日！　/
+              Night名簿帳　/　Night契約書　/　Nightアフターバック　/　Night PDF　/　Girls Board　/　Girls Back　/　泡姫ローテーション　/　Night Dice　/　子供クエスト　/　ゴミの日！　/
             </span>
           ))}
         </div>
