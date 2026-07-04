@@ -97,6 +97,7 @@ const nightCards: NightCard[] = [
     category: "収入管理",
     color: "#f59e0b", rgb: "245,158,11",
     chips: ["バック収入管理", "未収管理", "6ヶ月グラフ"],
+    appStoreHref: "https://apps.apple.com/jp/app/id6782473775",
   },
   {
     href: "/aohime-rotation",
@@ -118,6 +119,7 @@ const generalCards: GeneralCard[] = [
     color: "#10b981", rgb: "16,185,129",
     chips: ["2〜8人対戦", "チンチロ", "パーティー向け"],
     desc: "2〜8人で楽しむ伝統的なサイコロゲーム。パーティーに最適なアプリ。",
+    appStoreHref: "https://apps.apple.com/jp/app/id6755870063",
   },
   {
     href: "/kodomo-quest",
@@ -127,6 +129,7 @@ const generalCards: GeneralCard[] = [
     color: "#fb923c", rgb: "251,146,60",
     chips: ["クエスト制", "キャラ成長", "無料"],
     desc: "こどものやる気を引き出すクエスト管理アプリ。お手伝いをゲーム感覚で楽しもう！",
+    appStoreHref: "https://apps.apple.com/jp/app/id6781513708",
   },
   {
     href: "/gomi-no-hi",
