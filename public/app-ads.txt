@@ -2,6 +2,7 @@ google.com, pub-1342706829550106, DIRECT, f08c47fec0942fa0
 
 # Night名簿帳:         ca-app-pub-1342706829550106~9102650115
 # Night契約書:         ca-app-pub-1342706829550106~1988141492
+# Night シフト管理:     ca-app-pub-1342706829550106~6371462065
 # Nightアフターバック:  ca-app-pub-1342706829550106~4277519603
 # Night PDF (iOS):    ca-app-pub-1342706829550106~4382534498
 # Night Dice:         ca-app-pub-1342706829550106~2617084737
