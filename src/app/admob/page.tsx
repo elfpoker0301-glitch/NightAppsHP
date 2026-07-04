@@ -3,11 +3,12 @@ import Layout from "../components/Layout";
 const apps = [
   { name: "Night名簿帳",        appId: "ca-app-pub-1342706829550106~9102650115",  storeId: "6749575718",  verified: true  },
   { name: "Night契約書",         appId: "ca-app-pub-1342706829550106~1988141492",  storeId: null,          verified: false },
+  { name: "Night シフト管理",    appId: "ca-app-pub-1342706829550106~6371462065",  storeId: "6787041071",  verified: false },
   { name: "Nightアフターバック",  appId: "ca-app-pub-1342706829550106~4277519603",  storeId: "6751783629",  verified: true  },
-  { name: "Night PDF (iOS)",    appId: "ca-app-pub-1342706829550106~4382534498",  storeId: "6755779324",  verified: true  },
+  { name: "Night PDF (iOS)",    appId: "ca-app-pub-1342706829550106~4382534498",  storeId: "6755782601",  verified: true  },
   { name: "Night Dice",         appId: "ca-app-pub-1342706829550106~2617084737",  storeId: "6755870063",  verified: true  },
-  { name: "Girls Board",        appId: "ca-app-pub-1342706829550106~8405700678",  storeId: null,          verified: false },
-  { name: "Girls Back",         appId: "ca-app-pub-1342706829550106~2469959667",  storeId: null,          verified: true  },
+  { name: "Girls Board",        appId: "ca-app-pub-1342706829550106~8405700678",  storeId: "6785039885",  verified: false },
+  { name: "Girls Back",         appId: "ca-app-pub-1342706829550106~2469959667",  storeId: "6782473775",  verified: true  },
   { name: "子供クエスト",         appId: "ca-app-pub-1342706829550106~6021862292",  storeId: "6781513708",  verified: false },
   { name: "ゴミの日！",           appId: "ca-app-pub-1342706829550106~1353264632",  storeId: "6782357102",  verified: false },
 ];
