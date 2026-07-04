@@ -78,7 +78,7 @@ const nightCards: NightCard[] = [
     category: "PDF編集",
     color: "#f97316", rgb: "249,115,22",
     chips: ["バケツ塗り", "PDF編集", "リアルタイム描画"],
-    appStoreHref: "https://apps.apple.com/us/app/nightpdf-ios/id6755779324",
+    appStoreHref: "https://apps.apple.com/jp/app/id6755782601",
   },
   {
     href: "/girls-board",
