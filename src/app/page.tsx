@@ -88,6 +88,7 @@ const nightCards: NightCard[] = [
     category: "売上管理",
     color: "#a855f7", rgb: "168,85,247",
     chips: ["顧客管理", "売上ダッシュ", "日報シェア"],
+    appStoreHref: "https://apps.apple.com/jp/app/girls-board/id6785039885",
   },
   {
     href: "/girls-back",
