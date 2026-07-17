@@ -142,7 +142,7 @@ export default function ZeimuCalendarPage() {
         {/* App Store ダウンロード */}
         <section style={{ marginBottom: 40, textAlign: "center" }}>
           <a
-            href="https://apps.apple.com/jp/app/id0"
+            href="https://apps.apple.com/jp/app/id6791855439"
             style={{
               display: "inline-flex", alignItems: "center", gap: 12,
               background: APP_COLOR, color: "#0C1A2E",

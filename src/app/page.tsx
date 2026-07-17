@@ -60,6 +60,7 @@ const nightCards: NightCard[] = [
     category: "税務管理",
     color: "#C9A227", rgb: "201,162,39",
     chips: ["法人対応", "個人事業主対応", "税務期限管理", "iPhoneカレンダー同期"],
+    appStoreHref: "https://apps.apple.com/jp/app/id6791855439",
   },
   {
     href: "/night-keiyaku",
