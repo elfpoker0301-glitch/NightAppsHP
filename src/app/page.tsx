@@ -54,6 +54,14 @@ const nightCards: NightCard[] = [
     appStoreHref: "https://apps.apple.com/jp/app/night%E5%90%8D%E7%B0%BF%E5%B8%B3/id6749575718",
   },
   {
+    href: "/zeimucalendar",
+    name: "税務カレンダー",
+    initial: "税",
+    category: "税務管理",
+    color: "#C9A227", rgb: "201,162,39",
+    chips: ["法人対応", "個人事業主対応", "税務期限管理", "iPhoneカレンダー同期"],
+  },
+  {
     href: "/night-keiyaku",
     name: "Night契約書",
     initial: "契",
