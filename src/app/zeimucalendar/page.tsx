@@ -172,7 +172,7 @@ export default function ZeimuCalendarPage() {
             </div>
             <div style={{ background: `${APP_COLOR}10`, border: `1px solid ${APP_COLOR}40`, borderRadius: 14, padding: "24px" }}>
               <h3 style={{ fontSize: 16, fontWeight: 700, color: APP_COLOR, marginBottom: 4 }}>プレミアムプラン</h3>
-              <p style={{ fontSize: 24, fontWeight: 800, color: APP_COLOR, marginBottom: 16 }}>¥120 <span style={{ fontSize: 13, fontWeight: 400 }}>/ 月</span></p>
+              <p style={{ fontSize: 24, fontWeight: 800, color: APP_COLOR, marginBottom: 16 }}>¥100 <span style={{ fontSize: 13, fontWeight: 400 }}>/ 月</span></p>
               <ul style={{ paddingLeft: 18, margin: 0, color: "var(--mid)", fontSize: 13, lineHeight: 2 }}>
                 <li>複数プロファイル（法人＋個人）</li>
                 <li>全税務イベントの通知</li>
