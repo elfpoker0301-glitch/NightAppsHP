@@ -139,6 +139,22 @@ export default function ZeimuCalendarPage() {
           </div>
         </section>
 
+        {/* App Store ダウンロード */}
+        <section style={{ marginBottom: 40, textAlign: "center" }}>
+          <a
+            href="https://apps.apple.com/jp/app/id0"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 12,
+              background: APP_COLOR, color: "#0C1A2E",
+              padding: "14px 32px", borderRadius: 14,
+              fontWeight: 800, fontSize: 16, textDecoration: "none",
+            }}
+          >
+            <span style={{ fontSize: 22 }}>↓</span> App Store からダウンロード
+          </a>
+          <p style={{ fontSize: 12, color: "var(--light)", marginTop: 12 }}>iOS 16.0以降対応 · 無料</p>
+        </section>
+
         {/* プラン比較 */}
         <section style={{ marginBottom: 40 }}>
           <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, marginBottom: 20 }}>
